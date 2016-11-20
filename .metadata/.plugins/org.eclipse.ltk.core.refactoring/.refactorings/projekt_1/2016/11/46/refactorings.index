@@ -11,3 +11,7 @@
 1479654393045	Encapsulate field 'regon'
 1479654407044	Encapsulate field 'data_zalozenia'
 1479654687434	Rename package 'projekt_1'
+1479656151000	Encapsulate field 'id'
+1479656165189	Encapsulate field 'data_dodania'
+1479656207317	Encapsulate field 'nieruchomosc'
+1479656226721	Encapsulate field 'posrednik'
