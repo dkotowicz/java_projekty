@@ -44,7 +44,7 @@ public class Crud_posrednik
 			delete_all_posredniki = connection.prepareStatement("DELETE FROM posrednik");
 			select_posrednik = connection.prepareStatement("SELECT * FROM posrednik WHERE regon = ?");
 			select_all_posredniki = connection.prepareStatement("SELECT * FROM posrednik");
-			update_posredniki = connection.prepareStatement("UPDATE posrednik SET nazwa=?, regon=? data_zalozenia=? WHERE regon=?");
+			update_posredniki = connection.prepareStatement("UPDATE posrednik SET nazwa=?, data_zalozenia=? WHERE regon=?");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -83,17 +83,5 @@ public class Crud_posrednik
 			}
 			if(correct == 1){return true;}else{return false;}
 		}
-	public boolean update_posrednik(Posrednik stare, Posrednik nowe) {
-		int correct = 0;
-		try {
-			update_posredniki.setString(1, nowe.get_nazwa());
-			update_posredniki.setString(2, nowe.get_regon());
-			update_posredniki.setDate(3, nowe.get_data_zalozenia());
-			update_posredniki.setString(4, stare.get_regon());
-			correct = update_posredniki.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		if(correct == 1){return true;}else{return false;}
-	}
+	
 }
