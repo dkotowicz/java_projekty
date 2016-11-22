@@ -9,6 +9,15 @@ public class Nieruchomosc
 	private String ulica;
 	private String nr_bloku;
 	
+	public Nieruchomosc(String nr, String miasto, String kod_pocztowy, float czynsz, String ulica, String nr_bloku) {
+		super();
+		this.nr = nr;
+		this.miasto = miasto;
+		this.kod_pocztowy = kod_pocztowy;
+		this.czynsz = czynsz;
+		this.ulica = ulica;
+		this.nr_bloku = nr_bloku;
+	}
 	public String get_nr() {
 		return nr;
 	}
