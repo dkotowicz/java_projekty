@@ -55,7 +55,7 @@ public class Crud_posrednik
 			insert_posrednik.setString(1, posrednik.get_nazwa());
 			insert_posrednik.setString(2, posrednik.get_regon());
 			insert_posrednik.setDate(3, posrednik.get_data_zalozenia());
-			insert_posrednik.setInt(4, posrednik.get_id_nieruchomosc());
+			insert_posrednik.setInt(4, posrednik.get_id_nieruchomosc);
 			correct = insert_posrednik.executeUpdate();
 			connection.commit();
 		} catch (SQLException e) {

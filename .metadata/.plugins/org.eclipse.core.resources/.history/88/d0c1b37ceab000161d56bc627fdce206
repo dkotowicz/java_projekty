@@ -2,27 +2,27 @@ package models;
 
 public class Nieruchomosc 
 {
-	private int id_nieruchomosc;
+	private String nr;
 	private String miasto;
 	private String kod_pocztowy;
 	private float czynsz;
 	private String ulica;
 	private String nr_bloku;
 	
-	public Nieruchomosc(int id_nieruchomosc, String miasto, String kod_pocztowy, float czynsz, String ulica, String nr_bloku) {
+	public Nieruchomosc(String nr, String miasto, String kod_pocztowy, float czynsz, String ulica, String nr_bloku) {
 		super();
-		this.id_nieruchomosc=id_nieruchomosc;
+		this.nr = nr;
 		this.miasto = miasto;
 		this.kod_pocztowy = kod_pocztowy;
 		this.czynsz = czynsz;
 		this.ulica = ulica;
 		this.nr_bloku = nr_bloku;
 	}
-	public int get_id_nieruchomosc() {
-		return id_nieruchomosc;
+	public String get_nr() {
+		return nr;
 	}
-	public void set_id_nieruchomosc(int id_nieruchomosc) {
-		this.id_nieruchomosc = id_nieruchomosc;
+	public void set_nr(String nr) {
+		this.nr = nr;
 	}
 	public String get_miasto() {
 		return miasto;
@@ -55,5 +55,4 @@ public class Nieruchomosc
 	public void set_nr_bloku(String nr_bloku) {
 		this.nr_bloku = nr_bloku;
 	}
-
 }
