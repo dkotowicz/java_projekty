@@ -1,0 +1,11 @@
+package main.java;
+
+public class sprawdz {
+
+	public static void main(String[] args) {
+		Crud_nieruchomosc nier = new Crud_nieruchomosc();
+		nier.create_all_tables();
+
+	}
+
+}

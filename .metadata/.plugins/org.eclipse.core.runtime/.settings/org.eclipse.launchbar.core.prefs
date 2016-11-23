@@ -1,0 +1,4 @@
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:sprawdz
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:sprawdz/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:sprawdz/activeLaunchTarget=org.eclipse.remote.LocalServices\:Local

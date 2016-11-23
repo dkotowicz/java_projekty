@@ -2,3 +2,19 @@
 1479842231283	Encapsulate field 'id_posrednik'
 1479842309583	Encapsulate field 'id_nieruchomosc'
 1479842385930	Delete element
+1479910488527	Rename package 'crud'
+1479910510387	Copy package
+1479910515668	Delete element
+1479910560855	Move compilation unit
+1479910564535	Move compilation unit
+1479910593844	Rename package 'main.java'
+1479910615148	Move compilation unit
+1479910618526	Move compilation unit
+1479910664968	Move compilation unit
+1479910667713	Move compilation unit
+1479910672435	Delete element
+1479910675936	Delete element
+1479924646866	Delete element
+1479924652052	Delete element
+1479924657232	Delete element
+1479924663064	Delete element
