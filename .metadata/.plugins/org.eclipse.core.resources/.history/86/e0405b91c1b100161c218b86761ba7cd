@@ -26,7 +26,7 @@ public class sprawdz {
 		nier.select_all_nieruchomosc();
 		nier.select_all_posrednik();
 		//select x y
-		//nier.select_all_nieruchomosc_posrednik(n);
+		nier.select_all_nieruchomosc_posrednik(1);
 		
 		/*//delete
 		Nieruchomosc n1 = new Nieruchomosc();
@@ -41,8 +41,6 @@ public class sprawdz {
 		//select_all
 		nier.select_all_nieruchomosc();
 		//update*/
-		List<Nieruchomosc> listCat=nier.select_all_nieruchomosc();
-		nier.delete_nieruchomosc(listCat.get(0));
 	}
 
 }

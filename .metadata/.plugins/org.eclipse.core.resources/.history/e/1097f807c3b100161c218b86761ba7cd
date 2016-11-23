@@ -41,8 +41,7 @@ public class sprawdz {
 		//select_all
 		nier.select_all_nieruchomosc();
 		//update*/
-		List<Nieruchomosc> listCat=nier.select_all_nieruchomosc();
-		nier.delete_nieruchomosc(listCat.get(0));
+		nier.delete_nieruchomosc(n.get_id_nieruchomosc(1));
 	}
 
 }

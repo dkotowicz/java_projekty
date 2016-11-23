@@ -20,14 +20,11 @@ public class sprawdz {
 		n.set_nr_bloku("45");
 		n.set_ulica("S³owackiego");
 		n.set_id_posrednik(1);
-		//nier.insert_nieruchomosc(n);
+		nier.insert_nieruchomosc(n);
 
 		//select all
 		nier.select_all_nieruchomosc();
 		nier.select_all_posrednik();
-		//select x y
-		//nier.select_all_nieruchomosc_posrednik(n);
-		
 		/*//delete
 		Nieruchomosc n1 = new Nieruchomosc();
 		n1.set_miasto("Gdañsk");
@@ -41,8 +38,6 @@ public class sprawdz {
 		//select_all
 		nier.select_all_nieruchomosc();
 		//update*/
-		List<Nieruchomosc> listCat=nier.select_all_nieruchomosc();
-		nier.delete_nieruchomosc(listCat.get(0));
 	}
 
 }

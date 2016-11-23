@@ -8,7 +8,16 @@ public class Nieruchomosc
 	private float czynsz;
 	private String ulica;
 	private String nr_bloku;
-	private int id_posrednik;
+	
+	/*public Nieruchomosc(int id_nieruchomosc, String miasto, String kod_pocztowy, float czynsz, String ulica, String nr_bloku) {
+		super();
+		this.id_nieruchomosc=id_nieruchomosc;
+		this.miasto = miasto;
+		this.kod_pocztowy = kod_pocztowy;
+		this.czynsz = czynsz;
+		this.ulica = ulica;
+		this.nr_bloku = nr_bloku;
+	}*/
 
 	public int get_id_nieruchomosc() {
 		return id_nieruchomosc;
@@ -46,12 +55,6 @@ public class Nieruchomosc
 	}
 	public void set_nr_bloku(String nr_bloku) {
 		this.nr_bloku = nr_bloku;
-	}
-	public int get_id_posrednik() {
-		return id_posrednik;
-	}
-	public void set_id_posrednik(int id_posrednik) {
-		this.id_posrednik = id_posrednik;
 	}
 
 }
