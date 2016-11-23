@@ -83,6 +83,7 @@ public class Crud_nieruchomosc
 			try {
 				delete_nieruchomosc.setInt(1, nieruchomosc.get_id_nieruchomosc());
 				correct = delete_nieruchomosc.executeUpdate();
+				connection.commit();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -131,9 +132,9 @@ public class Crud_nieruchomosc
 	                String miasto = resultSet.getString("miasto");
 	                String kod_pocztowy = resultSet.getString("kod_pocztowy");
 	                
-	                System.out.print("ID: " + id);
-	                System.out.print(", Miasto: " + miasto);
-	                 System.out.print(", Kod_pocztowy: " + kod_pocztowy);
+	                //System.out.print("ID: " + id);
+	                //System.out.print(", Miasto: " + miasto);
+	                // System.out.print(", Kod_pocztowy: " + kod_pocztowy);
 	                all_nieruchomosc.add(n);
 	            }
 	        } catch (SQLException e) {

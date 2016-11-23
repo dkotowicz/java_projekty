@@ -16,14 +16,6 @@ public class sprawdz {
 		n.set_ulica("S³owackiego");
 		nier.insert_nieruchomosc(n);
 		//delete
-		Nieruchomosc n1 = new Nieruchomosc();
-		n1.set_miasto("Gdañsk");
-		n1.set_kod_pocztowy("12-345");
-		n1.set_czynsz((float) 45.65);
-		n1.set_nr_bloku("45");
-		n1.set_ulica("S³owackiego");
-		nier.insert_nieruchomosc(n1);
-		nier.delete_nieruchomosc(n);
 		//delete_all
 		//select
 		//select_all

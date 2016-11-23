@@ -52,7 +52,7 @@ public class Crud_nieruchomosc
         try {
             stat.execute(nieruchomosc_table);
             stat.execute(posrednik_table);
-            System.out.println("CREATE_ALL_TABLES dobrze");
+            //System.out.println("CREATE_ALL_TABLES dobrze");
         } catch (SQLException e) {
             System.err.println("Wyst¹pi³ b³¹d CREATE_ALL_TABLES");
             e.printStackTrace();
@@ -70,6 +70,7 @@ public class Crud_nieruchomosc
 			insert_nieruchomosc.setString(4, nieruchomosc.get_ulica());
 			insert_nieruchomosc.setString(5, nieruchomosc.get_nr_bloku());
 			correct = insert_nieruchomosc.executeUpdate();
+			connection.commit();
 			System.out.println("insert_nieruchomosc dobrze");
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -83,6 +84,7 @@ public class Crud_nieruchomosc
 			try {
 				delete_nieruchomosc.setInt(1, nieruchomosc.get_id_nieruchomosc());
 				correct = delete_nieruchomosc.executeUpdate();
+				connection.commit();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -114,31 +116,4 @@ public class Crud_nieruchomosc
 		}
 		if(correct == 1){return true;}else{return false;}
 	}
-	
-	 public List<Nieruchomosc> select_all_nieruchomosc(){
-	        List<Nieruchomosc> all_nieruchomosc =new ArrayList<>();
-	        try {
-	            ResultSet resultSet = select_all_nieruchomosci.executeQuery();
-	            while (resultSet.next()) {
-	            	Nieruchomosc n=new Nieruchomosc();
-	                n.set_id_nieruchomosc(resultSet.getInt("id_nieruchomosc"));
-	                n.set_miasto(resultSet.getString("miasto"));
-	                n.set_kod_pocztowy(resultSet.getString("kod_pocztowy"));
-	                n.set_czynsz(resultSet.getFloat("czynsz"));
-	                n.set_ulica(resultSet.getString("ulica"));
-	                n.set_nr_bloku(resultSet.getString("nr_bloku"));
-	                int id = resultSet.getInt("id_nieruchomosc");
-	                String miasto = resultSet.getString("miasto");
-	                String kod_pocztowy = resultSet.getString("kod_pocztowy");
-	                
-	                System.out.print("ID: " + id);
-	                System.out.print(", Miasto: " + miasto);
-	                 System.out.print(", Kod_pocztowy: " + kod_pocztowy);
-	                all_nieruchomosc.add(n);
-	            }
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	        }
-	        return all_nieruchomosc;
-	    }
 }
