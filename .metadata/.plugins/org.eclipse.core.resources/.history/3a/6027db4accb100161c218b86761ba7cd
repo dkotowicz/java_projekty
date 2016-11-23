@@ -1,0 +1,9 @@
+package test.java.modele;
+import static org.junit.Assert.*;
+
+public class Test {
+	 @Test
+	    public void create_all_tsbles() throws Exception {
+	        System.out.println("dupa");
+	    }
+}

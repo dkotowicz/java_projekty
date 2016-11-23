@@ -28,7 +28,7 @@ public class sprawdz {
 		//select x y
 		//nier.select_all_nieruchomosc_posrednik(n);
 		
-		//delete
+		/*//delete
 		Nieruchomosc n1 = new Nieruchomosc();
 		n1.set_miasto("Gdañsk");
 		n1.set_kod_pocztowy("12-345");
@@ -40,7 +40,7 @@ public class sprawdz {
 		//select
 		//select_all
 		nier.select_all_nieruchomosc();
-		//update
+		//update*/
 		List<Nieruchomosc> lista=nier.select_all_nieruchomosc();
 		nier.delete_nieruchomosc(lista.get(0));
 		

@@ -1,0 +1,28 @@
+package test.java.Modele;
+
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.ws.Service;
+
+import org.junit.Before;
+import org.junit.Test;
+public class Test_nietuchomosc_posrednik 
+{
+	
+	   @Before
+	    public void setUp() throws Exception {
+	        serv =new Service();
+	    }
+
+	
+	Service serv;
+	@Test
+    public void createTable() throws Exception {
+        assertTrue(serv.create_all_tables()); 
+    }
+
+}
