@@ -14,16 +14,8 @@ public class sprawdz {
 		n.set_czynsz((float) 45.65);
 		n.set_nr_bloku("45");
 		n.set_ulica("S³owackiego");
-		//nier.insert_nieruchomosc(n);
-		Posrednik p = new Posrednik();
-		p.set_nazwa("Darek Rekawek");
-		p.set_regon("123323454");
-		p.set_id_nieruchomosc(1);
-		//nier.insert_posrednik(p);
-		//select all
-		nier.select_all_nieruchomosc();
-		nier.select_all_posrednik();
-		/*//delete
+		nier.insert_nieruchomosc(n);
+		//delete
 		Nieruchomosc n1 = new Nieruchomosc();
 		n1.set_miasto("Gdañsk");
 		n1.set_kod_pocztowy("12-345");
@@ -31,11 +23,14 @@ public class sprawdz {
 		n1.set_nr_bloku("45");
 		n1.set_ulica("S³owackiego");
 		nier.insert_nieruchomosc(n1);
+		nier.delete_nieruchomosc(n);
 		//delete_all
 		//select
 		//select_all
 		nier.select_all_nieruchomosc();
-		//update*/
+		//update
+		
+		
 	}
 
 }

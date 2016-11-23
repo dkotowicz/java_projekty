@@ -21,7 +21,6 @@ public class Crud_nieruchomosc
 	private PreparedStatement delete_all_nieruchomosci;
 	private PreparedStatement select_nieruchomosci;
 	private PreparedStatement select_all_nieruchomosci;
-	private PreparedStatement select_all_posredniki;
 	private PreparedStatement update_nieruchomosci;
 	
     public Crud_nieruchomosc(){
@@ -41,7 +40,6 @@ public class Crud_nieruchomosc
 			delete_all_nieruchomosci = connection.prepareStatement("DELETE FROM nieruchomosc");
 			select_nieruchomosci = connection.prepareStatement("SELECT * FROM nieruchomosc WHERE id_nieruchomosc = ?");
 			select_all_nieruchomosci = connection.prepareStatement("SELECT * FROM nieruchomosc");
-			select_all_posredniki = connection.prepareStatement("SELECT * FROM posrednik");
 			update_nieruchomosci = connection.prepareStatement("UPDATE nieruchomosc SET miasto=?, kod_pocztowy=?, czynsz=?, ulica=?, nr_bloku=? WHERE id_nieruchomosc=?");
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -157,37 +155,7 @@ public class Crud_nieruchomosc
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	            System.out.println("wyst¹pi³ b³ad select_all_nieruchomosc");
 	        }
 	        return all_nieruchomosc;
-	    }
-	 
-	 public List<Posrednik> select_all_posrednik(){
-	        List<Posrednik> all_posrednik =new ArrayList<>();
-	        try {
-	            ResultSet resultSet = select_all_posredniki.executeQuery();
-	            while (resultSet.next()) {
-	            	Posrednik p=new Posrednik();
-	                p.set_id_posrednik(resultSet.getInt("id_posrednik"));
-	                p.set_nazwa(resultSet.getString("nazwa"));
-	                p.set_regon(resultSet.getString("regon"));
-	                p.set_id_nieruchomosc(resultSet.getInt("id_nieruchomosc"));
-	                
-	                int id = resultSet.getInt("id_posrednik");
-	                String nazwa = resultSet.getString("nazwa");
-	                String regon = resultSet.getString("regon");
-	                int id_nieruchomosc = resultSet.getInt("id_nieruchomosc");
-	                
-	                System.out.print("ID: " + id);
-	                System.out.print(", nazwa: " + nazwa);
-	                System.out.print(", regon: " + regon);
-	                System.out.println(", id_nieruchomosc: "+id_nieruchomosc);
-	                all_posrednik.add(p);
-	            }
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	            System.out.println("wyst¹pi³ b³ad select_all_posrednik");
-	        }
-	        return all_posrednik;
 	    }
 }
