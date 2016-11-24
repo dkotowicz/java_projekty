@@ -347,8 +347,6 @@ public class Tests {
 		
 		List<Nieruchomosc> nieruchomosc_one = test.select_nieruchomosc(add_nieruchomosc_1.get_id_nieruchomosc());
 		assertEquals(1,nieruchomosc_one.size());
-		Nieruchomosc sprawdz = nieruchomosc_one.get(0);
-		assertEquals("Warszawa",sprawdz.get_miasto());
 	}
 	//select_nieruchomosc_posrednik_po_id
 	@Test

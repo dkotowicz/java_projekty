@@ -20,7 +20,6 @@ public class Crud_nieruchomosc
 	private PreparedStatement select_all_nieruchomosci;
 	private PreparedStatement select_all_posredniki;
 	private PreparedStatement select_posrednik;
-	private PreparedStatement select_nieruchomosc;
 	private PreparedStatement select_posrednik_nieruchomosc;
 	private PreparedStatement delete_nieruchomosc;
 	private PreparedStatement delete_posrednik;
@@ -51,7 +50,6 @@ public class Crud_nieruchomosc
 			select_all_nieruchomosci = connection.prepareStatement("SELECT * FROM nieruchomosc");
 			select_all_posredniki = connection.prepareStatement("SELECT * FROM posrednik");
 			select_posrednik = connection.prepareStatement("SELECT * FROM posrednik WHERE id_posrednik=?");
-			select_nieruchomosc = connection.prepareStatement("SELECT miasto, ulica, kod_pocztowy, czynsz, nr_bloku, id_posrednik FROM nieruchomosc WHERE id_nieruchomosc=?");
 			select_posrednik_nieruchomosc = connection.prepareStatement("SELECT miasto, ulica, kod_pocztowy, czynsz, nr_bloku FROM nieruchomosc WHERE id_posrednik=?");
 		
 		} catch (SQLException e) {
@@ -168,47 +166,8 @@ public class Crud_nieruchomosc
 	        }
 	        return posrednik;
 	    }
-	 public List<Nieruchomosc> select_nieruchomosc(int id_nieruchomosc){
-	        List<Nieruchomosc> nieruchomosc =new ArrayList<>();
-	        try {
-	            select_nieruchomosc.setInt(1, id_nieruchomosc);
-	        	ResultSet resultSet = select_nieruchomosc.executeQuery();
-	            while (resultSet.next()) {
-	            	Nieruchomosc n = new Nieruchomosc();
-	            	n.set_miasto(resultSet.getString("miasto"));
-	                n.set_ulica(resultSet.getString("ulica"));
-	                n.set_nr_bloku(resultSet.getString("nr_bloku"));
-	                n.set_kod_pocztowy(resultSet.getString("kod_pocztowy"));
-	                n.set_czynsz(resultSet.getFloat("czynsz"));
-	                n.set_id_posrednik(resultSet.getInt("id_posrednik"));
-	                nieruchomosc.add(n);
-	            }
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	            //System.out.println("wyst¹pi³ b³ad select_all_posrednik");
-	        }
-	        return nieruchomosc;
-	    }
 	 
-	 public List<Nieruchomosc> select_posrednik_nieruchomosc(int id_posrednik){
-	        List<Nieruchomosc> nieruchomosc =new ArrayList<>();
-	        try {
-	            select_posrednik_nieruchomosc.setInt(1, id_posrednik);
-	        	ResultSet resultSet = select_posrednik_nieruchomosc.executeQuery();
-	            while (resultSet.next()) {
-	            	Nieruchomosc n=new Nieruchomosc();
-	                n.set_miasto(resultSet.getString("miasto"));
-	                n.set_ulica(resultSet.getString("ulica"));
-	                n.set_nr_bloku(resultSet.getString("nr_bloku"));
-	                n.set_kod_pocztowy(resultSet.getString("kod_pocztowy"));
-	                nieruchomosc.add(n);
-	            }
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	            System.out.println("wyst¹pi³ b³ad select_all_posrednik");
-	        }
-	        return nieruchomosc;
-	    } 
+	 
 	 
 	 public boolean delete_nieruchomosc(int id_nieruchomosc){
 			int correct = 0;
@@ -274,5 +233,24 @@ public class Crud_nieruchomosc
 		}
 		if(correct == 1){return true;}else{return false;}
 	}
-	
+	public List<Nieruchomosc> select_posrednik_nieruchomosc(int id_posrednik){
+        List<Nieruchomosc> nieruchomosc =new ArrayList<>();
+        try {
+            select_posrednik_nieruchomosc.setInt(1, id_posrednik);
+        	ResultSet resultSet = select_posrednik_nieruchomosc.executeQuery();
+            while (resultSet.next()) {
+            	Nieruchomosc n=new Nieruchomosc();
+                n.set_miasto(resultSet.getString("miasto"));
+                n.set_ulica(resultSet.getString("ulica"));
+                n.set_nr_bloku(resultSet.getString("nr_bloku"));
+                n.set_kod_pocztowy(resultSet.getString("kod_pocztowy"));
+                n.set_id_posrednik(resultSet.getInt("id_posrednik"));
+                nieruchomosc.add(n);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+           // System.out.println("wyst¹pi³ b³ad select_all_posrednik");
+        }
+        return nieruchomosc;
+    } 
 }
