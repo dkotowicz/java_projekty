@@ -406,7 +406,7 @@ public class Tests {
 		assertEquals(2,nieruchomosc_id.size());
 	}
 	
-	/*@Test
+	@Test
 	public void add_posrednik_blad()
 	{
 		Posrednik p = new Posrednik();
@@ -418,18 +418,4 @@ public class Tests {
 		Posrednik add_posrednik = posred.get(0);
 		assertEquals("2233265786",add_posrednik.get_regon());
 	}
-	@Test
-	public void update_posrednik_blad()
-	{
-		Posrednik p = new Posrednik();
-		p.set_nazwa("Darek Rêkawek");
-		p.set_regon("1233265788");
-		assertEquals(false,test.insert_posrednik(p));
-		
-		List<Posrednik> posred = test.select_all_posrednik();
-		Posrednik add_posrednik = posred.get(0);
-		assertEquals("1233265788",add_posrednik.get_regon());
-		
-		assertEquals(true, test.update_posrednik("Dariusz","2233265788", add_posrednik.get_id_posrednik()));
-	}*/
 }
