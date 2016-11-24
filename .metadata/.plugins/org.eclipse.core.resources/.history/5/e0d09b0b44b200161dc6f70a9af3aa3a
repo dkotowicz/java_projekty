@@ -229,6 +229,8 @@ public class Tests {
 		n.set_id_posrednik(add_posrednik_0.get_id_posrednik());
 		assertEquals(true,test.insert_nieruchomosc(n));
 		
+		
+		
 		Nieruchomosc n1 = new Nieruchomosc();
 		n1.set_miasto("Warszawa");
 		n1.set_kod_pocztowy("90-292");

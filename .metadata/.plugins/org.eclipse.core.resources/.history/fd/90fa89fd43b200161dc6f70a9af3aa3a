@@ -217,8 +217,6 @@ public class Tests {
 		assertEquals(3,pos.size());
 		
 		Posrednik add_posrednik_0 = pos.get(0);
-		Posrednik add_posrednik_1 = pos.get(1);
-		Posrednik add_posrednik_2 = pos.get(2);
 		
 		Nieruchomosc n = new Nieruchomosc();
 		n.set_miasto("Gdañsk");
@@ -229,13 +227,15 @@ public class Tests {
 		n.set_id_posrednik(add_posrednik_0.get_id_posrednik());
 		assertEquals(true,test.insert_nieruchomosc(n));
 		
+		
+		
 		Nieruchomosc n1 = new Nieruchomosc();
 		n1.set_miasto("Warszawa");
 		n1.set_kod_pocztowy("90-292");
 		n1.set_ulica("S³owackiego");
 		n1.set_czynsz(560);
 		n1.set_nr_bloku("8");
-		n1.set_id_posrednik(add_posrednik_2.get_id_posrednik());
+		n1.set_id_posrednik(p2.get_id_posrednik());
 		assertEquals(true,test.insert_nieruchomosc(n1));
 		
 		Nieruchomosc n2 = new Nieruchomosc();
@@ -244,7 +244,7 @@ public class Tests {
 		n2.set_ulica("Podkarpacka");
 		n2.set_czynsz(560);
 		n2.set_nr_bloku("4");
-		n2.set_id_posrednik(add_posrednik_1.get_id_posrednik());
+		n2.set_id_posrednik(p1.get_id_posrednik());
 		assertEquals(true,test.insert_nieruchomosc(n2));	
 		
 		List<Nieruchomosc> nier = test.select_all_nieruchomosc();
@@ -252,15 +252,18 @@ public class Tests {
 		
 		Nieruchomosc add_nieruchomosc_0 = nier.get(0);
 		assertEquals("Gdañsk",add_nieruchomosc_0.get_miasto());
-		assertEquals(add_posrednik_0.get_id_posrednik(),add_nieruchomosc_0.get_id_posrednik());
+		//assertEquals(p.get_id_posrednik(),add_nieruchomosc_0.get_id_posrednik());
+		
+		System.out.println(add_nieruchomosc_0.get_id_posrednik());
+		
 		
 		Nieruchomosc add_nieruchomosc_1 = nier.get(1);
 		assertEquals("Warszawa",add_nieruchomosc_1.get_miasto());
-		assertEquals(add_posrednik_2.get_id_posrednik(),add_nieruchomosc_1.get_id_posrednik());
+		assertEquals(p2.get_id_posrednik(),add_nieruchomosc_1.get_id_posrednik());
 		
 		Nieruchomosc add_nieruchomosc_2 = nier.get(2);
 		assertEquals("Kraków",add_nieruchomosc_2.get_miasto());
-		assertEquals(add_posrednik_1.get_id_posrednik(),add_nieruchomosc_2.get_id_posrednik());
+		assertEquals(p1.get_id_posrednik(),add_nieruchomosc_2.get_id_posrednik());
 	}
 	
 	//select_one
