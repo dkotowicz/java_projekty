@@ -9,13 +9,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.Crud;
+import main.java.Crud_nieruchomosc;
 import main.java.Nieruchomosc;
-import main.java.Posrednik;
+import models.Posrednik;
 
 public class Tests {
 	
-	Crud test = new Crud();
+	Crud_nieruchomosc test = new Crud_nieruchomosc();
 	
 	@Before
 	public void drop_tables()

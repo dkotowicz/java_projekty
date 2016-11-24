@@ -1,0 +1,29 @@
+package models;
+
+import java.sql.Date;
+
+public class Posrednik 
+{
+	private int id_posrednik;
+	private String nazwa;
+	private String regon;
+	
+	public int get_id_posrednik() {
+		return id_posrednik;
+	}
+	public void set_id_posrednik(int id_posrednik) {
+		this.id_posrednik = id_posrednik;
+	}
+	public String get_nazwa() {
+		return nazwa;
+	}
+	public void set_nazwa(String nazwa) {
+		this.nazwa = nazwa;
+	}
+	public String get_regon() {
+		return regon;
+	}
+	public void set_regon(String regon) {
+		this.regon = regon;
+	}
+}
