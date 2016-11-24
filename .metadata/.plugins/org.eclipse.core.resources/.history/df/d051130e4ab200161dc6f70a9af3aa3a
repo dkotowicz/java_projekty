@@ -62,9 +62,9 @@ public class Tests {
 		Posrednik add_posrednik = posred.get(0);
 		
 		Nieruchomosc n = new Nieruchomosc();
-		n.set_miasto("Gdansk");
+		n.set_miasto("Gdañsk");
 		n.set_kod_pocztowy("80-292");
-		n.set_ulica("Goralska");
+		n.set_ulica("Góralska");
 		n.set_czynsz(560);
 		n.set_nr_bloku("41D");
 		n.set_id_posrednik(add_posrednik.get_id_posrednik());
@@ -72,7 +72,7 @@ public class Tests {
 		
 		List<Nieruchomosc> nier = test.select_all_nieruchomosc();
 		Nieruchomosc add_nieruchomosc = nier.get(0);
-		assertEquals("Goralska",add_nieruchomosc.get_ulica());
+		assertEquals("Góralska",add_nieruchomosc.get_ulica());
 	}
 	
 	//edycja
@@ -80,7 +80,7 @@ public class Tests {
 	public void update_posrednik()
 	{
 		Posrednik p = new Posrednik();
-		p.set_nazwa("Darek Rekawek");
+		p.set_nazwa("Darek Rêkawek");
 		p.set_regon("1233265788");
 		assertEquals(true,test.insert_posrednik(p));
 		
@@ -94,9 +94,9 @@ public class Tests {
 	public void update_nieruchomosc()
 	{
 		Nieruchomosc n = new Nieruchomosc();
-		n.set_miasto("Gdansk");
+		n.set_miasto("Gdañsk");
 		n.set_kod_pocztowy("80-292");
-		n.set_ulica("Goralska");
+		n.set_ulica("Góralska");
 		n.set_czynsz(560);
 		n.set_nr_bloku("41D");
 		n.set_id_posrednik(10);
@@ -104,9 +104,9 @@ public class Tests {
 		
 		List<Nieruchomosc> nier = test.select_all_nieruchomosc();
 		Nieruchomosc add_nieruchomosc = nier.get(0);
-		assertEquals("Goralska",add_nieruchomosc.get_ulica());
+		assertEquals("Góralska",add_nieruchomosc.get_ulica());
 		
-		assertEquals(true, test.update_nieruchomosc("Warszawa", "Slowackiego", (float) 677, "90-823", "54A", add_nieruchomosc.get_id_nieruchomosc(),0));
+		assertEquals(true, test.update_nieruchomosc("Warszawa", "S³owackiego", (float) 677, "90-823", "54A", add_nieruchomosc.get_id_nieruchomosc(),0));
 	}
 	
 	//usuwanie
@@ -114,7 +114,7 @@ public class Tests {
 	public void delete_posrednik()
 	{
 		Posrednik p = new Posrednik();
-		p.set_nazwa("Darek Rekawek");
+		p.set_nazwa("Darek Rêkawek");
 		p.set_regon("1233265788");
 		assertEquals(true,test.insert_posrednik(p));
 		
@@ -128,9 +128,9 @@ public class Tests {
 	public void delete_nieruchomosc()
 	{
 		Nieruchomosc n = new Nieruchomosc();
-		n.set_miasto("Gdansk");
+		n.set_miasto("Gdañsk");
 		n.set_kod_pocztowy("80-292");
-		n.set_ulica("Goralska");
+		n.set_ulica("Góralska");
 		n.set_czynsz(560);
 		n.set_nr_bloku("41D");
 		n.set_id_posrednik(1);
@@ -138,7 +138,7 @@ public class Tests {
 		
 		List<Nieruchomosc> nier = test.select_all_nieruchomosc();
 		Nieruchomosc add_nieruchomosc = nier.get(0);
-		assertEquals("Goralska",add_nieruchomosc.get_ulica());
+		assertEquals("Góralska",add_nieruchomosc.get_ulica());
 		
 		assertEquals(true,test.delete_nieruchomosc(add_nieruchomosc.get_id_nieruchomosc()));
 	}
@@ -146,7 +146,7 @@ public class Tests {
 	public void delete_all_tables()
 	{
 		Posrednik p = new Posrednik();
-		p.set_nazwa("Darek Rekawek");
+		p.set_nazwa("Darek Rêkawek");
 		p.set_regon("1233265788");
 		assertEquals(true,test.insert_posrednik(p));
 		
@@ -155,9 +155,9 @@ public class Tests {
 		assertEquals("1233265788",add_posrednik.get_regon());
 		
 		Nieruchomosc n = new Nieruchomosc();
-		n.set_miasto("Gdansk");
+		n.set_miasto("Gdañsk");
 		n.set_kod_pocztowy("80-292");
-		n.set_ulica("Goralska");
+		n.set_ulica("Góralska");
 		n.set_czynsz(560);
 		n.set_nr_bloku("41D");
 		n.set_id_posrednik(p.get_id_posrednik());
@@ -165,7 +165,7 @@ public class Tests {
 		
 		List<Nieruchomosc> nier = test.select_all_nieruchomosc();
 		Nieruchomosc add_nieruchomosc = nier.get(0);
-		assertEquals("Goralska",add_nieruchomosc.get_ulica());
+		assertEquals("Góralska",add_nieruchomosc.get_ulica());
 		
 		assertEquals(true,test.delete_all_tables());
 	}
@@ -175,7 +175,7 @@ public class Tests {
 	public void select_posrednik_all()
 	{
 		Posrednik p = new Posrednik();
-		p.set_nazwa("Darek Rekawek");
+		p.set_nazwa("Darek Rêkawek");
 		p.set_regon("1233265788");
 		assertEquals(true,test.insert_posrednik(p));
 		
@@ -193,7 +193,7 @@ public class Tests {
 		assertEquals(3,posrednik.size());
 		
 		Posrednik add_posrednik_0 = posrednik.get(0);
-		assertEquals("Darek Rekawek",add_posrednik_0.get_nazwa());
+		assertEquals("Darek Rêkawek",add_posrednik_0.get_nazwa());
 		assertEquals("1233265788",add_posrednik_0.get_regon());
 		
 		Posrednik add_posrednik_1 = posrednik.get(1);
@@ -208,7 +208,7 @@ public class Tests {
 	public void select_nieruchomosc_all()
 	{
 		Posrednik p = new Posrednik();
-		p.set_nazwa("Darek Rekawek");
+		p.set_nazwa("Darek Rêkawek");
 		p.set_regon("1233265788");
 		assertEquals(true,test.insert_posrednik(p));
 		
@@ -230,9 +230,9 @@ public class Tests {
 		Posrednik add_posrednik_2 = pos.get(2);
 		
 		Nieruchomosc n = new Nieruchomosc();
-		n.set_miasto("Gdansk");
+		n.set_miasto("Gdañsk");
 		n.set_kod_pocztowy("80-292");
-		n.set_ulica("Goralska");
+		n.set_ulica("Góralska");
 		n.set_czynsz(560);
 		n.set_nr_bloku("41D");
 		n.set_id_posrednik(add_posrednik_0.get_id_posrednik());
@@ -241,14 +241,14 @@ public class Tests {
 		Nieruchomosc n1 = new Nieruchomosc();
 		n1.set_miasto("Warszawa");
 		n1.set_kod_pocztowy("90-292");
-		n1.set_ulica("Slowackiego");
+		n1.set_ulica("S³owackiego");
 		n1.set_czynsz(560);
 		n1.set_nr_bloku("8");
 		n1.set_id_posrednik(add_posrednik_2.get_id_posrednik());
 		assertEquals(true,test.insert_nieruchomosc(n1));
 		
 		Nieruchomosc n2 = new Nieruchomosc();
-		n2.set_miasto("Krakow");
+		n2.set_miasto("Kraków");
 		n2.set_kod_pocztowy("70-292");
 		n2.set_ulica("Podkarpacka");
 		n2.set_czynsz(560);
@@ -260,7 +260,7 @@ public class Tests {
 		assertEquals(3,nier.size());
 		
 		Nieruchomosc add_nieruchomosc_0 = nier.get(0);
-		assertEquals("Gdansk",add_nieruchomosc_0.get_miasto());
+		assertEquals("Gdañsk",add_nieruchomosc_0.get_miasto());
 		assertEquals(add_posrednik_0.get_id_posrednik(),add_nieruchomosc_0.get_id_posrednik());
 		
 		Nieruchomosc add_nieruchomosc_1 = nier.get(1);
@@ -268,7 +268,7 @@ public class Tests {
 		assertEquals(add_posrednik_2.get_id_posrednik(),add_nieruchomosc_1.get_id_posrednik());
 		
 		Nieruchomosc add_nieruchomosc_2 = nier.get(2);
-		assertEquals("Krakow",add_nieruchomosc_2.get_miasto());
+		assertEquals("Kraków",add_nieruchomosc_2.get_miasto());
 		assertEquals(add_posrednik_1.get_id_posrednik(),add_nieruchomosc_2.get_id_posrednik());
 	}
 	
@@ -277,7 +277,7 @@ public class Tests {
 	public void select_posrednik()
 	{
 		Posrednik p = new Posrednik();
-		p.set_nazwa("Darek Rekawek");
+		p.set_nazwa("Darek Rêkawek");
 		p.set_regon("1233265788");
 		assertEquals(true,test.insert_posrednik(p));
 		
@@ -298,7 +298,7 @@ public class Tests {
 	public void select_nieruchomosc()
 	{
 		Posrednik p = new Posrednik();
-		p.set_nazwa("Darek Rekawek");
+		p.set_nazwa("Darek Rêkawek");
 		p.set_regon("1233265788");
 		assertEquals(true,test.insert_posrednik(p));
 		
@@ -314,9 +314,9 @@ public class Tests {
 		Posrednik add_posrednik_1 = pos.get(1);
 		
 		Nieruchomosc n = new Nieruchomosc();
-		n.set_miasto("Gdansk");
+		n.set_miasto("Gdañsk");
 		n.set_kod_pocztowy("80-292");
-		n.set_ulica("Goralska");
+		n.set_ulica("Góralska");
 		n.set_czynsz(560);
 		n.set_nr_bloku("41D");
 		n.set_id_posrednik(add_posrednik_0.get_id_posrednik());
@@ -325,14 +325,14 @@ public class Tests {
 		Nieruchomosc n1 = new Nieruchomosc();
 		n1.set_miasto("Warszawa");
 		n1.set_kod_pocztowy("90-292");
-		n1.set_ulica("Slowackiego");
+		n1.set_ulica("S³owackiego");
 		n1.set_czynsz(560);
 		n1.set_nr_bloku("8");
 		n1.set_id_posrednik(add_posrednik_0.get_id_posrednik());
 		assertEquals(true,test.insert_nieruchomosc(n1));
 		
 		Nieruchomosc n2 = new Nieruchomosc();
-		n2.set_miasto("Krakow");
+		n2.set_miasto("Kraków");
 		n2.set_kod_pocztowy("70-292");
 		n2.set_ulica("Podkarpacka");
 		n2.set_czynsz(560);
@@ -356,7 +356,7 @@ public class Tests {
 	public void select_nieruchomosc_posrednik_id()
 	{
 		Posrednik p = new Posrednik();
-		p.set_nazwa("Darek Rekawek");
+		p.set_nazwa("Darek Rêkawek");
 		p.set_regon("1233265788");
 		assertEquals(true,test.insert_posrednik(p));
 		
@@ -372,9 +372,9 @@ public class Tests {
 		Posrednik add_posrednik_1 = pos.get(1);
 		
 		Nieruchomosc n = new Nieruchomosc();
-		n.set_miasto("Gdansk");
+		n.set_miasto("Gdañsk");
 		n.set_kod_pocztowy("80-292");
-		n.set_ulica("Goralska");
+		n.set_ulica("Góralska");
 		n.set_czynsz(560);
 		n.set_nr_bloku("41D");
 		n.set_id_posrednik(add_posrednik_0.get_id_posrednik());
@@ -383,14 +383,14 @@ public class Tests {
 		Nieruchomosc n1 = new Nieruchomosc();
 		n1.set_miasto("Warszawa");
 		n1.set_kod_pocztowy("90-292");
-		n1.set_ulica("Slowackiego");
+		n1.set_ulica("S³owackiego");
 		n1.set_czynsz(560);
 		n1.set_nr_bloku("8");
 		n1.set_id_posrednik(add_posrednik_0.get_id_posrednik());
 		assertEquals(true,test.insert_nieruchomosc(n1));
 		
 		Nieruchomosc n2 = new Nieruchomosc();
-		n2.set_miasto("Krakow");
+		n2.set_miasto("Kraków");
 		n2.set_kod_pocztowy("70-292");
 		n2.set_ulica("Podkarpacka");
 		n2.set_czynsz(560);
@@ -422,7 +422,7 @@ public class Tests {
 	public void update_posrednik_blad()
 	{
 		Posrednik p = new Posrednik();
-		p.set_nazwa("Darek Rekawek");
+		p.set_nazwa("Darek Rêkawek");
 		p.set_regon("1233265788");
 		assertEquals(false,test.insert_posrednik(p));
 		

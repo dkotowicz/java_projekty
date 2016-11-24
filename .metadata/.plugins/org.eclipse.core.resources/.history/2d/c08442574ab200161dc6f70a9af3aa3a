@@ -72,7 +72,7 @@ public class Crud_nieruchomosc
             stat.execute(nieruchomosc_table);
             //System.out.println("CREATE_ALL_TABLES dobrze");
         } catch (SQLException e) {
-           // System.err.println("Wystapil blad CREATE_ALL_TABLES");
+           // System.err.println("Wyst¹pi³ b³¹d CREATE_ALL_TABLES");
             e.printStackTrace();
             return false;
         }
@@ -87,7 +87,7 @@ public class Crud_nieruchomosc
 			//System.out.println("insert_posrednik dobrze");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			//System.out.println("Wystapil blad insert_nieruchomosc");
+			//System.out.println("Wyst¹pi³ b³¹d insert_nieruchomosc");
 		}
 		if(correct == 1){return true;}else{return false;}
 		}
@@ -105,7 +105,7 @@ public class Crud_nieruchomosc
 			//System.out.println("insert_nieruchomosc dobrze");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			//System.out.println("Wystapil blad insert_nieruchomosc");
+			//System.out.println("Wyst¹pi³ b³¹d insert_nieruchomosc");
 		}
 		if(correct == 1){return true;}else{return false;}
 		}
@@ -126,7 +126,7 @@ public class Crud_nieruchomosc
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	            //System.out.println("wystapil blad select_all_nieruchomosc");
+	            //System.out.println("wyst¹pi³ b³ad select_all_nieruchomosc");
 	        }
 	        return all_nieruchomosc;
 	    }
@@ -145,7 +145,7 @@ public class Crud_nieruchomosc
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	            //System.out.println("wystapil blad select_all_posrednik");
+	            //System.out.println("wyst¹pi³ b³ad select_all_posrednik");
 	        }
 	        return all_posrednik;
 	    }
@@ -164,7 +164,7 @@ public class Crud_nieruchomosc
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	            //System.out.println("wystapil blad select_all_posrednik");
+	            //System.out.println("wyst¹pi³ b³ad select_all_posrednik");
 	        }
 	        return posrednik;
 	    }
@@ -185,7 +185,7 @@ public class Crud_nieruchomosc
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	            //System.out.println("wystapil blad select_all_posrednik");
+	            //System.out.println("wyst¹pi³ b³ad select_all_posrednik");
 	        }
 	        return nieruchomosc;
 	    }
@@ -217,7 +217,7 @@ public class Crud_nieruchomosc
 					correct = delete_nieruchomosc.executeUpdate();
 				} catch (SQLException e) {
 					e.printStackTrace();
-					//System.out.println("Wystapil blad delete_nieruchomosc");
+					//System.out.println("Wyst¹pi³ b³¹d delete_nieruchomosc");
 				}
 				if(correct == 1){return true;}else{return false;}
 		}
@@ -228,7 +228,7 @@ public class Crud_nieruchomosc
 					correct = delete_posrednik.executeUpdate();
 				} catch (SQLException e) {
 					e.printStackTrace();
-					//System.out.println("Wystapil blad delete_posrednik");
+					//System.out.println("Wyst¹pi³ b³¹d delete_posrednik");
 				}
 				if(correct == 1){return true;}else{return false;}
 		}
