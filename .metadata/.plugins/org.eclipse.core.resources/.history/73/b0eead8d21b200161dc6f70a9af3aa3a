@@ -24,12 +24,10 @@ public class Crud_nieruchomosc
 	private PreparedStatement delete_posrednik;
 	private PreparedStatement delete_all_nieruchomosci;
 	private PreparedStatement delete_all_posredniki;
-	private PreparedStatement update_nieruchomosci;
-	private PreparedStatement update_posrednik;
 	
 	private PreparedStatement select_nieruchomosci;
 
-	
+	private PreparedStatement update_nieruchomosci;
 	
     public Crud_nieruchomosc(){
         try {
@@ -44,9 +42,6 @@ public class Crud_nieruchomosc
             create_all_tables();
 			insert_nieruchomosc = connection.prepareStatement("INSERT INTO nieruchomosc(miasto, kod_pocztowy, czynsz, ulica, nr_bloku, id_posrednik) VALUES (?,?,?,?,?,?)");
 			insert_posrednik = connection.prepareStatement("INSERT INTO posrednik(nazwa, regon) VALUES (?,?)");
-			update_nieruchomosci = connection.prepareStatement("UPDATE nieruchomosc SET miasto=?, kod_pocztowy=?, czynsz=?, ulica=?, nr_bloku=?, id_posrednik=? WHERE id_nieruchomosc=?");
-			update_posrednik = 
-			
 			select_all_nieruchomosci = connection.prepareStatement("SELECT * FROM nieruchomosc");
 			select_all_posredniki = connection.prepareStatement("SELECT * FROM posrednik");
 			select_all_nieruchomosc_posrednik = connection.prepareStatement("SELECT nieruchomosc.miasto, nieruchomosc.ulica, nieruchomosc.nr_bloku, nieruchomosc.kod_pocztowy FROM nieruchomosc INNER JOIN posrednik ON nieruchomosc.id_posrednik=posrednik.id_posrednik WHERE posrednik.id_posrednik=?");			
@@ -54,7 +49,7 @@ public class Crud_nieruchomosc
 			delete_posrednik = connection.prepareStatement("DELETE FROM posrednik WHERE id_posrednik = ?");
 			delete_all_nieruchomosci = connection.prepareStatement("DELETE FROM nieruchomosc");
 			delete_all_posredniki = connection.prepareStatement("DELETE FROM posrednik");
-			
+			update_nieruchomosci = connection.prepareStatement("UPDATE nieruchomosc SET miasto=?, kod_pocztowy=?, czynsz=?, ulica=?, nr_bloku=?, id_posrednik=? WHERE id_nieruchomosc=?");
 			
 			//select_nieruchomosci = connection.prepareStatement("SELECT * FROM nieruchomosc WHERE id_nieruchomosc = ?");
 
@@ -217,21 +212,6 @@ public class Crud_nieruchomosc
 		}
 		if(correct == 1){return true;}else{return false;}
 	}
-	
-	public boolean update_posrednik(Posrednik nowe) {
-		int correct = 0;
-		try {
-			update_posrednik.setString(1, nowe.get_nazwa());
-			update_posrednik.setString(2, nowe.get_regon());
-			update_nieruchomosci.setInt(0, nowe.get_id_posrednik());
-			correct = update_nieruchomosci.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		if(correct == 1){return true;}else{return false;}
-	}
-	
-	
 	/*public List<Posrednik>  select_all_nieruchomosc_posrednik(Nieruchomosc id_posrednik){
     List<Posrednik> select_all_nieruchomosc_posrednik =new ArrayList<>();
     try {
