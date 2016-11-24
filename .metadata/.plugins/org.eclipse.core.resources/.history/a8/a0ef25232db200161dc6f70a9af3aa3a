@@ -210,7 +210,7 @@ public class Crud_nieruchomosc
 			update_nieruchomosci.setString(4, ulica);
 			update_nieruchomosci.setString(5, nr_bloku);
 			update_nieruchomosci.setInt(6, id_posrednik);
-			update_nieruchomosci.setInt(7, id_nieruchomosc);
+			update_nieruchomosci.setInt(0, id_nieruchomosc);
 			
 			correct = update_nieruchomosci.executeUpdate();
 		} catch (SQLException e) {

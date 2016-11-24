@@ -204,14 +204,13 @@ public class Crud_nieruchomosc
 	public boolean update_nieruchomosc(String miasto, String ulica, Float czynsz, String kod_pocztowy, String nr_bloku, int id_nieruchomosc, int id_posrednik) {
 		int correct = 0;
 		try {
-			update_nieruchomosci.setString(1, miasto);
-			update_nieruchomosci.setString(2, kod_pocztowy);
-			update_nieruchomosci.setFloat(3, czynsz);
-			update_nieruchomosci.setString(4, ulica);
-			update_nieruchomosci.setString(5, nr_bloku);
-			update_nieruchomosci.setInt(6, id_posrednik);
-			update_nieruchomosci.setInt(7, id_nieruchomosc);
-			
+			update_nieruchomosci.setString(1, nowe.get_miasto());
+			update_nieruchomosci.setString(2, nowe.get_kod_pocztowy());
+			update_nieruchomosci.setFloat(3, nowe.get_czynsz());
+			update_nieruchomosci.setString(4, nowe.get_ulica());
+			update_nieruchomosci.setString(5, nowe.get_nr_bloku());
+			update_nieruchomosci.setInt(6, nowe.get_id_posrednik());
+			update_nieruchomosci.setInt(0, stare.get_id_nieruchomosc());
 			correct = update_nieruchomosci.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
