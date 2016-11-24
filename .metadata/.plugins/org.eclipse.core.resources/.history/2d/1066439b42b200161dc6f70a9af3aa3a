@@ -20,12 +20,17 @@ public class Crud_nieruchomosc
 	private PreparedStatement select_all_nieruchomosci;
 	private PreparedStatement select_all_posredniki;
 	private PreparedStatement select_posrednik;
+	private PreparedStatement select_posrednik_nieruchomosc;
 	private PreparedStatement delete_nieruchomosc;
 	private PreparedStatement delete_posrednik;
 	private PreparedStatement delete_all_nieruchomosci;
 	private PreparedStatement delete_all_posredniki;
 	private PreparedStatement update_nieruchomosci;
 	private PreparedStatement update_posrednik;
+	
+	private PreparedStatement select_nieruchomosci;
+
+	
 	
     public Crud_nieruchomosc(){
         try {
@@ -49,7 +54,8 @@ public class Crud_nieruchomosc
 			select_all_nieruchomosci = connection.prepareStatement("SELECT * FROM nieruchomosc");
 			select_all_posredniki = connection.prepareStatement("SELECT * FROM posrednik");
 			select_posrednik = connection.prepareStatement("SELECT * FROM posrednik WHERE id_posrednik=?");
-		
+			select_posrednik_nieruchomosc = connection.prepareStatement("SELECT miasto,ulica, nr_bloku, kod_pocztowy FROM nieruchomosc WHERE id_posrednik=?");
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -66,9 +72,9 @@ public class Crud_nieruchomosc
         try {
         	stat.execute(posrednik_table);
             stat.execute(nieruchomosc_table);
-            //System.out.println("CREATE_ALL_TABLES dobrze");
+            System.out.println("CREATE_ALL_TABLES dobrze");
         } catch (SQLException e) {
-           // System.err.println("Wyst¹pi³ b³¹d CREATE_ALL_TABLES");
+            System.err.println("Wyst¹pi³ b³¹d CREATE_ALL_TABLES");
             e.printStackTrace();
             return false;
         }
@@ -80,10 +86,10 @@ public class Crud_nieruchomosc
 			insert_posrednik.setString(1, posrednik.get_nazwa());
 			insert_posrednik.setString(2, posrednik.get_regon());
 			correct = insert_posrednik.executeUpdate();
-			//System.out.println("insert_posrednik dobrze");
+			System.out.println("insert_posrednik dobrze");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			//System.out.println("Wyst¹pi³ b³¹d insert_nieruchomosc");
+			System.out.println("Wyst¹pi³ b³¹d insert_nieruchomosc");
 		}
 		if(correct == 1){return true;}else{return false;}
 		}
@@ -98,10 +104,10 @@ public class Crud_nieruchomosc
 			insert_nieruchomosc.setString(5, nieruchomosc.get_nr_bloku());
 			insert_nieruchomosc.setInt(6, nieruchomosc.get_id_posrednik());	
 			correct = insert_nieruchomosc.executeUpdate();
-			//System.out.println("insert_nieruchomosc dobrze");
+			System.out.println("insert_nieruchomosc dobrze");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			//System.out.println("Wyst¹pi³ b³¹d insert_nieruchomosc");
+			System.out.println("Wyst¹pi³ b³¹d insert_nieruchomosc");
 		}
 		if(correct == 1){return true;}else{return false;}
 		}
@@ -118,11 +124,18 @@ public class Crud_nieruchomosc
 	                n.set_ulica(resultSet.getString("ulica"));
 	                n.set_nr_bloku(resultSet.getString("nr_bloku"));
 	                n.set_id_posrednik(resultSet.getInt("id_posrednik"));
+	                int id = resultSet.getInt("id_nieruchomosc");
+	                String miasto = resultSet.getString("miasto");
+	                String kod_pocztowy = resultSet.getString("kod_pocztowy");
+	                
+	                System.out.print("ID: " + id);
+	                System.out.print(", Miasto: " + miasto);
+	                System.out.print(", Kod_pocztowy: " + kod_pocztowy);
 	                all_nieruchomosc.add(n);
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	            //System.out.println("wyst¹pi³ b³ad select_all_nieruchomosc");
+	            System.out.println("wyst¹pi³ b³ad select_all_nieruchomosc");
 	        }
 	        return all_nieruchomosc;
 	    }
@@ -137,11 +150,18 @@ public class Crud_nieruchomosc
 	                p.set_nazwa(resultSet.getString("nazwa"));
 	                p.set_regon(resultSet.getString("regon"));
 	                
+	                int id = resultSet.getInt("id_posrednik");
+	                String nazwa = resultSet.getString("nazwa");
+	                String regon = resultSet.getString("regon");
+	                
+	                System.out.print("ID: " + id);
+	                System.out.print(", nazwa: " + nazwa);
+	                System.out.print(", regon: " + regon);
 	                all_posrednik.add(p);
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	            //System.out.println("wyst¹pi³ b³ad select_all_posrednik");
+	            System.out.println("wyst¹pi³ b³ad select_all_posrednik");
 	        }
 	        return all_posrednik;
 	    }
@@ -156,11 +176,15 @@ public class Crud_nieruchomosc
 	                p.set_id_posrednik(resultSet.getInt("id_posrednik"));
 	                p.set_nazwa(resultSet.getString("nazwa"));
 	                p.set_regon(resultSet.getString("regon"));
+	                
+	                int id = resultSet.getInt("id_posrednik");
+	                String nazwa = resultSet.getString("nazwa");
+	                String regon = resultSet.getString("regon");
 	                posrednik.add(p);
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	            //System.out.println("wyst¹pi³ b³ad select_all_posrednik");
+	            System.out.println("wyst¹pi³ b³ad select_all_posrednik");
 	        }
 	        return posrednik;
 	    }
@@ -174,7 +198,7 @@ public class Crud_nieruchomosc
 					correct = delete_nieruchomosc.executeUpdate();
 				} catch (SQLException e) {
 					e.printStackTrace();
-					//System.out.println("Wyst¹pi³ b³¹d delete_nieruchomosc");
+					System.out.println("Wyst¹pi³ b³¹d delete_nieruchomosc");
 				}
 				if(correct == 1){return true;}else{return false;}
 		}
@@ -185,7 +209,7 @@ public class Crud_nieruchomosc
 					correct = delete_posrednik.executeUpdate();
 				} catch (SQLException e) {
 					e.printStackTrace();
-					//System.out.println("Wyst¹pi³ b³¹d delete_posrednik");
+					System.out.println("Wyst¹pi³ b³¹d delete_posrednik");
 				}
 				if(correct == 1){return true;}else{return false;}
 		}
@@ -231,4 +255,25 @@ public class Crud_nieruchomosc
 		}
 		if(correct == 1){return true;}else{return false;}
 	}
+	public List<Nieruchomosc> select_posrednik_nieruchomosc(int id_posrednik){
+        List<Nieruchomosc> nieruchomosc =new ArrayList<>();
+        try {
+            select_posrednik_nieruchomosc.setInt(1, id_posrednik);
+        	ResultSet resultSet = select_posrednik_nieruchomosc.executeQuery();
+            while (resultSet.next()) {
+            	Nieruchomosc n=new Nieruchomosc();
+                n.set_miasto(resultSet.getString("miasto"));
+                n.set_ulica(resultSet.getString("ulica"));
+                n.set_nr_bloku(resultSet.getString("nr_bloku"));
+                n.set_kod_pocztowy(resultSet.getString("kod_pocztowy"));
+                n.set_id_posrednik(resultSet.getInt("id_posrednik"));
+                nieruchomosc.add(n);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("wyst¹pi³ b³ad select_all_posrednik");
+        }
+        return nieruchomosc;
+    }
+	 
 }

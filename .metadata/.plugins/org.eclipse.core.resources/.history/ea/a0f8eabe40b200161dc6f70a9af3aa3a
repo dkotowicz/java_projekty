@@ -278,7 +278,49 @@ public class Tests {
 
 		assertEquals(1,posrednik_one.size());
 	}
+	//select_lista_nieruchomosc_po_id_posrednik
+	@Test
+	public void select_nieruchomosc_po_id_posrednik()
+	{	
+		Nieruchomosc n = new Nieruchomosc();
+		n.set_miasto("Gdañsk");
+		n.set_kod_pocztowy("80-292");
+		n.set_ulica("Góralska");
+		n.set_czynsz(560);
+		n.set_nr_bloku("41D");
+		n.set_id_posrednik(1);
+		assertEquals(true,test.insert_nieruchomosc(n));
+		
+		Nieruchomosc n1 = new Nieruchomosc();
+		n1.set_miasto("Warszawa");
+		n1.set_kod_pocztowy("90-292");
+		n1.set_ulica("S³owackiego");
+		n1.set_czynsz(560);
+		n1.set_nr_bloku("8");
+		n1.set_id_posrednik(1);
+		assertEquals(true,test.insert_nieruchomosc(n1));
+		
+		Nieruchomosc n2 = new Nieruchomosc();
+		n2.set_miasto("Kraków");
+		n2.set_kod_pocztowy("70-292");
+		n2.set_ulica("Podkarpacka");
+		n2.set_czynsz(560);
+		n2.set_nr_bloku("4");
+		n2.set_id_posrednik(2);
+		assertEquals(true,test.insert_nieruchomosc(n2));
+		
+		/*List<Nieruchomosc> nier = test.select_all_nieruchomosc();
+		assertEquals(3,nier.size());
+		
+		Nieruchomosc add_nieruchomosc = nier.get(0); 
+		
 
+		
+		List<Nieruchomosc> nier_id_posrednik = test.select_posrednik_nieruchomosc(1);
+		
+		//System.out.println(" ROZMIAR "+nier_id_posrednik.size());
+		//assertEquals(2,nier_id_posrednik.size());*/
+	}
 	
 	
 	

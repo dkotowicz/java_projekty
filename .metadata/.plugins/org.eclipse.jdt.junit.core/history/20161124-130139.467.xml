@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Tests" project="projekt_1" tests="12" started="12" failures="0" errors="1" ignored="0">
+  <testsuite name="test.java.modele.Tests" time="7.212">
+    <testcase name="test_connection" classname="test.java.modele.Tests" time="0.272"/>
+    <testcase name="select_posrednik_all" classname="test.java.modele.Tests" time="0.487"/>
+    <testcase name="select_nieruchomosc_po_id_posrednik" classname="test.java.modele.Tests" time="0.313">
+      <error>java.lang.Error: Unresolved compilation problem: 
+	add_nieruchomosc cannot be resolved
+&#13;
+	at test.java.modele.Tests.select_nieruchomosc_po_id_posrednik(Tests.java:345)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="add_posrednik" classname="test.java.modele.Tests" time="0.464"/>
+    <testcase name="delete_nieruchomosc" classname="test.java.modele.Tests" time="0.624"/>
+    <testcase name="select_posrednik" classname="test.java.modele.Tests" time="0.653"/>
+    <testcase name="add_nieruchomosc" classname="test.java.modele.Tests" time="0.57"/>
+    <testcase name="update_nieruchomosc" classname="test.java.modele.Tests" time="0.644"/>
+    <testcase name="delete_all_tables" classname="test.java.modele.Tests" time="0.927"/>
+    <testcase name="delete_posrednik" classname="test.java.modele.Tests" time="0.624"/>
+    <testcase name="select_nieruchomosc_all" classname="test.java.modele.Tests" time="1.023"/>
+    <testcase name="update_posrednik" classname="test.java.modele.Tests" time="0.607"/>
+  </testsuite>
+</testrun>
