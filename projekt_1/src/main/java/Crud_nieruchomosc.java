@@ -46,12 +46,13 @@ public class Crud_nieruchomosc
 			insert_posrednik = connection.prepareStatement("INSERT INTO posrednik(nazwa, regon) VALUES (?,?)");
 			update_nieruchomosci = connection.prepareStatement("UPDATE nieruchomosc SET miasto=?, kod_pocztowy=?, czynsz=?, ulica=?, nr_bloku=?, id_posrednik=? WHERE id_nieruchomosc=?");
 			update_posrednik = connection.prepareStatement("UPDATE posrednik SET nazwa=?, regon=? WHERE id_posrednik=?");
+			delete_posrednik = connection.prepareStatement("DELETE FROM posrednik WHERE id_posrednik =?");
 			
 			select_all_nieruchomosci = connection.prepareStatement("SELECT * FROM nieruchomosc");
 			select_all_posredniki = connection.prepareStatement("SELECT * FROM posrednik");
 			select_all_nieruchomosc_posrednik = connection.prepareStatement("SELECT nieruchomosc.miasto, nieruchomosc.ulica, nieruchomosc.nr_bloku, nieruchomosc.kod_pocztowy FROM nieruchomosc INNER JOIN posrednik ON nieruchomosc.id_posrednik=posrednik.id_posrednik WHERE posrednik.id_posrednik=?");			
 			delete_nieruchomosc = connection.prepareStatement("DELETE FROM nieruchomosc WHERE id_nieruchomosc = ?");
-			delete_posrednik = connection.prepareStatement("DELETE FROM posrednik WHERE id_posrednik = ?");
+			
 			delete_all_nieruchomosci = connection.prepareStatement("DELETE FROM nieruchomosc");
 			delete_all_posredniki = connection.prepareStatement("DELETE FROM posrednik");
 			
@@ -168,22 +169,22 @@ public class Crud_nieruchomosc
 	        }
 	        return all_posrednik;
 	    }
-	 public boolean delete_nieruchomosc(Nieruchomosc id_nieruchomosc){
+	 public boolean delete_nieruchomosc(int id_nieruchomosc){
 			int correct = 0;
 				try {
-					delete_nieruchomosc.setInt(1,id_nieruchomosc.get_id_nieruchomosc());
-					delete_nieruchomosc.execute();
+					delete_nieruchomosc.setInt(1,id_nieruchomosc);
+					correct = delete_nieruchomosc.executeUpdate();
 				} catch (SQLException e) {
 					e.printStackTrace();
 					System.out.println("Wyst¹pi³ b³¹d delete_nieruchomosc");
 				}
 				if(correct == 1){return true;}else{return false;}
 		}
-	 public boolean delete_posrednik(Posrednik id_posrednik){
+	 public boolean delete_posrednik(int id_posrednik){
 			int correct = 0;
 				try {
-					delete_posrednik.setInt(1,id_posrednik.get_id_posrednik());
-					delete_posrednik.execute();
+					delete_posrednik.setInt(1,id_posrednik);
+					correct = delete_posrednik.executeUpdate();
 				} catch (SQLException e) {
 					e.printStackTrace();
 					System.out.println("Wyst¹pi³ b³¹d delete_posrednik");

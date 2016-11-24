@@ -9,8 +9,9 @@ public class sprawdz {
 		Posrednik p = new Posrednik();
 		p.set_nazwa("dupa11");
 		p.set_regon("123323454");
-		nier.insert_posrednik(p);
-		nier.update_posrednik("Darek", "1111111111",63 );
+		//nier.insert_posrednik(p);
+		//nier.update_posrednik("Darek", "1111111111",63 );
+		nier.delete_posrednik(148);
 		
 		/*nier.create_all_tables();
 		Nieruchomosc n = new Nieruchomosc();

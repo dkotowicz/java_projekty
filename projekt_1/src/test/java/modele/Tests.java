@@ -99,12 +99,10 @@ public class Tests {
 		assertEquals("Góralska",add_nieruchomosc.get_ulica());
 		
 		assertEquals(true, test.update_nieruchomosc("Warszawa", "S³owackiego", (float) 677, "90-823", "54A", add_nieruchomosc.get_id_nieruchomosc(),0));
-
 	}
 	
-	
 	//usuwanie
-	/*@Test
+	@Test
 	public void delete_posrednik()
 	{
 		Posrednik p = new Posrednik();
@@ -112,9 +110,32 @@ public class Tests {
 		p.set_regon("1233265788");
 		assertEquals(true,test.insert_posrednik(p));
 		
+		List<Posrednik> posred = test.select_all_posrednik();
+		Posrednik add_posrednik = posred.get(0);
+		assertEquals("1233265788",add_posrednik.get_regon());
 
-		//assertEquals(true, test.update_posrednik("Dariusz","2233265788", p.get_id_posrednik()));
-	}*/
+		assertEquals(true,test.delete_posrednik(add_posrednik.get_id_posrednik()));
+	}
+	@Test
+	public void delete_nieruchomosc()
+	{
+		Nieruchomosc n = new Nieruchomosc();
+		n.set_miasto("Gdañsk");
+		n.set_kod_pocztowy("80-292");
+		n.set_ulica("Góralska");
+		n.set_czynsz(560);
+		n.set_nr_bloku("41D");
+		n.set_id_posrednik(1);
+		assertEquals(true,test.insert_nieruchomosc(n));
+		
+		List<Nieruchomosc> nier = test.select_all_nieruchomosc();
+		Nieruchomosc add_nieruchomosc = nier.get(0);
+		assertEquals("Góralska",add_nieruchomosc.get_ulica());
+		
+		assertEquals(true,test.delete_nieruchomosc(add_nieruchomosc.get_id_nieruchomosc()));
+	}
+	
+	
 
 
 	
