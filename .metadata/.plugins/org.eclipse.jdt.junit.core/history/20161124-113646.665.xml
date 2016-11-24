@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Tests" project="projekt_1" tests="7" started="7" failures="0" errors="0" ignored="0">
+  <testsuite name="test.java.modele.Tests" time="3.719">
+    <testcase name="test_connection" classname="test.java.modele.Tests" time="0.391"/>
+    <testcase name="add_posrednik" classname="test.java.modele.Tests" time="0.52"/>
+    <testcase name="delete_nieruchomosc" classname="test.java.modele.Tests" time="0.532"/>
+    <testcase name="add_nieruchomosc" classname="test.java.modele.Tests" time="0.481"/>
+    <testcase name="update_nieruchomosc" classname="test.java.modele.Tests" time="0.598"/>
+    <testcase name="delete_posrednik" classname="test.java.modele.Tests" time="0.643"/>
+    <testcase name="update_posrednik" classname="test.java.modele.Tests" time="0.554"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,57 @@
+package main.java;
+
+import java.util.List;
+
+public class sprawdz {
+
+	public static void main(String[] args) {
+		Crud_nieruchomosc nier = new Crud_nieruchomosc();
+		Posrednik p = new Posrednik();
+		p.set_nazwa("dupa11");
+		p.set_regon("123323454");
+		nier.insert_posrednik(p);
+		//nier.update_posrednik("Darek", "1111111111",63 );
+		//nier.delete_posrednik(148);
+		nier.select_posrednik(283);
+		
+		/*nier.create_all_tables();
+		Nieruchomosc n = new Nieruchomosc();
+		//insert posrednik 
+		Posrednik p = new Posrednik();
+		p.set_nazwa("dupa11");
+		p.set_regon("123323454");
+		//nier.insert_posrednik(p);
+		//insert nieruchomosc
+		n.set_miasto("Gdansk");
+		n.set_kod_pocztowy("12-345");
+		n.set_czynsz((float) 45.65);
+		n.set_nr_bloku("45");
+		n.set_ulica("S³owackiego");
+		n.set_id_posrednik(1);
+		//nier.insert_nieruchomosc(n);
+
+		//select all
+		nier.select_all_nieruchomosc();
+		nier.select_all_posrednik();
+		//select x y
+		//nier.select_all_nieruchomosc_posrednik(n);
+		
+		//delete
+		Nieruchomosc n1 = new Nieruchomosc();
+		n1.set_miasto("Gdañsk");
+		n1.set_kod_pocztowy("12-345");
+		n1.set_czynsz((float) 45.65);
+		n1.set_nr_bloku("45");
+		n1.set_ulica("S³owackiego");
+		nier.insert_nieruchomosc(n1);
+		//delete_all
+		//select
+		//select_all
+		nier.select_all_nieruchomosc();
+		//update
+		List<Nieruchomosc> lista=nier.select_all_nieruchomosc();
+		nier.delete_nieruchomosc(lista.get(0));
+	*/	
+	}
+
+}
