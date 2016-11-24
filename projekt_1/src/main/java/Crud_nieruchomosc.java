@@ -45,7 +45,7 @@ public class Crud_nieruchomosc
 			insert_nieruchomosc = connection.prepareStatement("INSERT INTO nieruchomosc(miasto, kod_pocztowy, czynsz, ulica, nr_bloku, id_posrednik) VALUES (?,?,?,?,?,?)");
 			insert_posrednik = connection.prepareStatement("INSERT INTO posrednik(nazwa, regon) VALUES (?,?)");
 			update_nieruchomosci = connection.prepareStatement("UPDATE nieruchomosc SET miasto=?, kod_pocztowy=?, czynsz=?, ulica=?, nr_bloku=?, id_posrednik=? WHERE id_nieruchomosc=?");
-			update_posrednik = 
+			update_posrednik = connection.prepareStatement("UPDATE posrednik SET nazwa=?, regon=? WHERE id_posrednik=?");
 			
 			select_all_nieruchomosci = connection.prepareStatement("SELECT * FROM nieruchomosc");
 			select_all_posredniki = connection.prepareStatement("SELECT * FROM posrednik");
@@ -201,7 +201,7 @@ public class Crud_nieruchomosc
 	        return true;
 	    }
 	 
-	public boolean update_nieruchomosc(Nieruchomosc stare, Nieruchomosc nowe) {
+	public boolean update_nieruchomosc(String miasto, String ulica, Float czynsz, String kod_pocztowy, String nr_bloku, int id_nieruchomosc, int id_posrednik) {
 		int correct = 0;
 		try {
 			update_nieruchomosci.setString(1, nowe.get_miasto());
@@ -218,13 +218,14 @@ public class Crud_nieruchomosc
 		if(correct == 1){return true;}else{return false;}
 	}
 	
-	public boolean update_posrednik(Posrednik nowe) {
+	public boolean update_posrednik(String nazwa, String regon, int id_posrednik) {
 		int correct = 0;
 		try {
-			update_posrednik.setString(1, nowe.get_nazwa());
-			update_posrednik.setString(2, nowe.get_regon());
-			update_nieruchomosci.setInt(0, nowe.get_id_posrednik());
-			correct = update_nieruchomosci.executeUpdate();
+			update_posrednik.setString(1, nazwa);
+			update_posrednik.setString(2, regon);
+			update_posrednik.setInt(3, id_posrednik);
+			correct = update_posrednik.executeUpdate();
+			System.out.print(correct);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

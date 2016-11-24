@@ -67,6 +67,35 @@ public class Tests {
 		assertEquals("Góralska",add_nieruchomosc.get_ulica());
 	}
 	
+	//edycja
+	@Test
+	public void update_posrednik()
+	{
+		Posrednik p = new Posrednik();
+		p.set_nazwa("Darek Rêkawek");
+		p.set_regon("1233265788");
+		assertEquals(true,test.insert_posrednik(p));
+		
+		List<Posrednik> posred = test.select_all_posrednik();
+		Posrednik add_posrednik = posred.get(0);
+		assertEquals("1233265788",add_posrednik.get_regon());
+		
+		assertEquals(true, test.update_posrednik("Dariusz","2233265788", add_posrednik.get_id_posrednik()));
+	}
+	//usuwanie
+	/*@Test
+	public void delete_posrednik()
+	{
+		Posrednik p = new Posrednik();
+		p.set_nazwa("Darek Rêkawek");
+		p.set_regon("1233265788");
+		assertEquals(true,test.insert_posrednik(p));
+		
+
+		//assertEquals(true, test.update_posrednik("Dariusz","2233265788", p.get_id_posrednik()));
+	}*/
+
+
 	
 
 }

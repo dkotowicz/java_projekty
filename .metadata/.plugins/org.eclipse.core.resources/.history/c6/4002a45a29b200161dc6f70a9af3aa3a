@@ -1,0 +1,92 @@
+
+package test.java.modele;
+
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import main.java.Crud_nieruchomosc;
+import main.java.Nieruchomosc;
+import main.java.Posrednik;
+
+public class Tests {
+	
+	Crud_nieruchomosc test = new Crud_nieruchomosc();
+	
+	@Before
+	public void drop_tables()
+	{
+		test.delete_all_tables();
+		test.create_all_tables();
+	}
+	
+	@After
+	public void delete_all()
+	{
+		test.delete_all_tables();
+	}
+	
+	//po³¹czenie 
+	@Test
+	public void test_connection()
+	{
+		assertNotNull((test).get_connection());
+	}
+	
+	//dodawanie
+	@Test
+	public void add_posrednik()
+	{
+		Posrednik p = new Posrednik();
+		p.set_nazwa("Biuro nieruchomosci");
+		p.set_regon("1233265786");
+		assertEquals(true,test.insert_posrednik(p));
+		
+		List<Posrednik> posred = test.select_all_posrednik();
+		Posrednik add_posrednik = posred.get(0);
+		assertEquals("1233265786",add_posrednik.get_regon());
+	}
+	@Test
+	public void add_nieruchomosc()
+	{
+		Nieruchomosc n = new Nieruchomosc();
+		n.set_miasto("Gdañsk");
+		n.set_kod_pocztowy("80-292");
+		n.set_ulica("Góralska");
+		n.set_czynsz(560);
+		n.set_nr_bloku("41D");
+		n.set_id_posrednik(1);
+		assertEquals(true,test.insert_nieruchomosc(n));
+		
+		List<Nieruchomosc> nier = test.select_all_nieruchomosc();
+		Nieruchomosc add_nieruchomosc = nier.get(0);
+		assertEquals("Góralska",add_nieruchomosc.get_ulica());
+	}
+	
+	//edycja
+	@Test
+	public void update_posrednik()
+	{
+		Posrednik p = new Posrednik();
+		p.set_nazwa("Darek Rêkawek");
+		p.set_regon("1233265788");
+		assertEquals(true,test.insert_posrednik(p));
+		
+		
+		System.out.println("id "+p.get_id_posrednik());
+		System.out.println(p.get_nazwa());
+		System.out.println(p.get_regon());
+		assertEquals(false, test.update_posrednik("Dariusz","2233265788", p.get_id_posrednik()));
+		System.out.println(p.get_regon());
+		System.out.println(p.get_nazwa());
+		System.out.println("dypa");
+	}
+
+
+	
+
+}

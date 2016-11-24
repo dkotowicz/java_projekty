@@ -4,9 +4,15 @@ import java.util.List;
 
 public class sprawdz {
 
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		Crud_nieruchomosc nier = new Crud_nieruchomosc();
-		nier.create_all_tables();
+		Posrednik p = new Posrednik();
+		p.set_nazwa("dupa11");
+		p.set_regon("123323454");
+		nier.insert_posrednik(p);
+		nier.update_posrednik("Darek", "1111111111",63 );
+		
+		/*nier.create_all_tables();
 		Nieruchomosc n = new Nieruchomosc();
 		//insert posrednik 
 		Posrednik p = new Posrednik();
@@ -43,7 +49,7 @@ public class sprawdz {
 		//update
 		List<Nieruchomosc> lista=nier.select_all_nieruchomosc();
 		nier.delete_nieruchomosc(lista.get(0));
-		
-	}*/
+	*/	
+	}
 
 }
