@@ -1,0 +1,20 @@
+
+package test.java.modele;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import main.java.Crud_nieruchomosc;
+
+public class Tests {
+	
+	Crud_nieruchomosc test = new Crud_nieruchomosc();
+	
+	@Before
+	public void drop_tables(){
+		test.delete_all_tables();
+	}
+
+}

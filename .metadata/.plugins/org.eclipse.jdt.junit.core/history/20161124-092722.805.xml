@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Tests" project="projekt_1" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="test.java.modele.Tests" time="0.725">
+    <testcase name="test_connection" classname="test.java.modele.Tests" time="0.341"/>
+    <testcase name="add_posrednik" classname="test.java.modele.Tests" time="0.383"/>
+  </testsuite>
+</testrun>

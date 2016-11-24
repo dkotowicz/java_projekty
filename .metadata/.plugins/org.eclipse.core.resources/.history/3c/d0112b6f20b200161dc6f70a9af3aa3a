@@ -50,7 +50,6 @@ public class Tests {
 		Posrednik add_posrednik = posred.get(0);
 		assertEquals("1233265786",add_posrednik.get_regon());
 	}
-	@Test
 	public void add_nieruchomosc()
 	{
 		Nieruchomosc n = new Nieruchomosc();

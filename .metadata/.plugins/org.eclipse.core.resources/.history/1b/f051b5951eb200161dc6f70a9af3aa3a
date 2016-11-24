@@ -59,10 +59,6 @@ public class Crud_nieruchomosc
 		}
 	}
     
-	public Connection get_connection() {
-		return connection;
-	}
-    
     public boolean create_all_tables(){
 
     	String posrednik_table="CREATE TABLE IF NOT EXISTS posrednik ( id_posrednik INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, nazwa VARCHAR(100), regon VARCHAR(10))";

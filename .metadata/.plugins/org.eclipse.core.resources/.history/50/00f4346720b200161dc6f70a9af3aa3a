@@ -50,23 +50,6 @@ public class Tests {
 		Posrednik add_posrednik = posred.get(0);
 		assertEquals("1233265786",add_posrednik.get_regon());
 	}
-	@Test
-	public void add_nieruchomosc()
-	{
-		Nieruchomosc n = new Nieruchomosc();
-		n.set_miasto("Gdañsk");
-		n.set_kod_pocztowy("80-292");
-		n.set_ulica("Góralska");
-		n.set_czynsz(560);
-		n.set_nr_bloku("41D");
-		n.set_id_posrednik(1);
-		assertEquals(true,test.insert_nieruchomosc(n));
-		
-		List<Nieruchomosc> nier = test.select_all_nieruchomosc();
-		Nieruchomosc add_nieruchomosc = nier.get(0);
-		assertEquals("Góralska",add_nieruchomosc.get_ulica());
-	}
-	
 	
 
 }
