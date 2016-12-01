@@ -10,8 +10,13 @@
 <fullyQualifiedTypeName name="models.Nieruchomosc"/>
 <fullyQualifiedTypeName name="models.Posrednik"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="javax.xml.ws.Service"/>
-<fullyQualifiedTypeName name="org.junit.Before"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="main.java.Crud_nieruchomosc"/>
+<fullyQualifiedTypeName name="org.junit.Before"/>
+<fullyQualifiedTypeName name="org.junit.After"/>
+<fullyQualifiedTypeName name="main.java.Nieruchomosc"/>
+<fullyQualifiedTypeName name="main.java.Posrednik"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

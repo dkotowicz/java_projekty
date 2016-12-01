@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Tests" project="projekt_1" tests="13" started="13" failures="0" errors="0" ignored="0">
+  <testsuite name="test.java.Tests" time="8.224">
+    <testcase name="selectNieruchomosc" classname="test.java.Tests" time="0.751"/>
+    <testcase name="deletePosrednik" classname="test.java.Tests" time="0.625"/>
+    <testcase name="testConnection" classname="test.java.Tests" time="0.375"/>
+    <testcase name="updatePosrednik" classname="test.java.Tests" time="0.535"/>
+    <testcase name="addNieruchomosc" classname="test.java.Tests" time="0.578"/>
+    <testcase name="deleteAllTables" classname="test.java.Tests" time="0.719"/>
+    <testcase name="deleteNieruchomosc" classname="test.java.Tests" time="0.546"/>
+    <testcase name="updateNieruchomosc" classname="test.java.Tests" time="0.563"/>
+    <testcase name="selectPosrednikAll" classname="test.java.Tests" time="0.641"/>
+    <testcase name="selectPosrednik" classname="test.java.Tests" time="0.531"/>
+    <testcase name="selectNieruchomoscAll" classname="test.java.Tests" time="0.969"/>
+    <testcase name="addPosrednik" classname="test.java.Tests" time="0.453"/>
+    <testcase name="selectNieruchomoscPosrednikId" classname="test.java.Tests" time="0.938"/>
+  </testsuite>
+</testrun>
