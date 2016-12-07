@@ -1,0 +1,14 @@
+package main.java.com.model;
+import javax.persistence.*;
+@Entity
+@Table(name="Posrednik")
+
+public class Posrednik 
+{
+	@Id
+	@Column(name="id_posrednik")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id_posrednik;
+	
+	
+}

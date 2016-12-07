@@ -1,4 +1,6 @@
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:sprawdz,org.eclipse.launchbar.core.descriptorType.default\:Tests
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:sprawdz,org.eclipse.launchbar.core.descriptorType.default\:Tests,org.eclipse.launchbar.core.descriptorType.default\:CRUDManagerTest
 eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:CRUDManagerTest/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:CRUDManagerTest/activeLaunchTarget=org.eclipse.remote.LocalServices\:Local
 org.eclipse.launchbar.core.descriptorType.default\:sprawdz/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:sprawdz/activeLaunchTarget=org.eclipse.remote.LocalServices\:Local
