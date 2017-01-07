@@ -9,4 +9,8 @@ public interface NieruchomosciManager
 {	
 	void addNieruchomosc(Nieruchomosc nieruchomosc);
 	Long addPosrednik(Posrednik posrednik);
+	
+	List<Nieruchomosc> getAllNieruchmosci();
+	List<Posrednik> getAllPosredniki();
+	
 }

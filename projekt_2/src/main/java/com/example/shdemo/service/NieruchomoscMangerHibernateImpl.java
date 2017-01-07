@@ -35,4 +35,19 @@ public class NieruchomoscMangerHibernateImpl implements NieruchomosciManager
 		posrednik.setId(null);
 		return (Long)sessionFactory.getCurrentSession().save(posrednik);
 	}
+
+	@Override
+	public List<Nieruchomosc> getAllNieruchmosci() 
+	{
+		return sessionFactory.getCurrentSession().getNamedQuery("nieruchomosc.all").list();
+	}
+	
+	@Override
+	public List<Posrednik> getAllPosredniki() 
+	{
+		return sessionFactory.getCurrentSession().getNamedQuery("posrednik.all").list();
+	}
+	
+	
+	
 }
