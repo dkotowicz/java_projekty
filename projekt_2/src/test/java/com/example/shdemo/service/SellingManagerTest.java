@@ -22,7 +22,7 @@ import com.example.shdemo.domain.Posrednik;
 public class SellingManagerTest {
 
 	@Autowired
-	SellingManager sellingManager;
+	NieruchomosciManager sellingManager;
 
 	private final String NAME_1 = "Bolek";
 	private final String PIN_1 = "1234";
