@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.shdemo.domain.Car;
-import com.example.shdemo.domain.Person;
+import com.example.shdemo.domain.Nieruchomosc;
+import com.example.shdemo.domain.Posrednik;
 
 @Component
 @Transactional
@@ -27,18 +27,18 @@ public class SellingMangerHibernateImpl implements SellingManager {
 	}
 	
 	@Override
-	public void addClient(Person person) {
+	public void addClient(Posrednik person) {
 		person.setId(null);
 		sessionFactory.getCurrentSession().persist(person);
 	}
 	
 	@Override
-	public void deleteClient(Person person) {
-		person = (Person) sessionFactory.getCurrentSession().get(Person.class,
+	public void deleteClient(Posrednik person) {
+		person = (Posrednik) sessionFactory.getCurrentSession().get(Posrednik.class,
 				person.getId());
 		
 		// lazy loading here
-		for (Car car : person.getCars()) {
+		for (Nieruchomosc car : person.getCars()) {
 			car.setSold(false);
 			sessionFactory.getCurrentSession().update(car);
 		}
@@ -46,60 +46,60 @@ public class SellingMangerHibernateImpl implements SellingManager {
 	}
 
 	@Override
-	public List<Car> getOwnedCars(Person person) {
-		person = (Person) sessionFactory.getCurrentSession().get(Person.class,
+	public List<Nieruchomosc> getOwnedCars(Posrednik person) {
+		person = (Posrednik) sessionFactory.getCurrentSession().get(Posrednik.class,
 				person.getId());
 		// lazy loading here - try this code without (shallow) copying
-		List<Car> cars = new ArrayList<Car>(person.getCars());
+		List<Nieruchomosc> cars = new ArrayList<Nieruchomosc>(person.getCars());
 		return cars;
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Person> getAllClients() {
+	public List<Posrednik> getAllClients() {
 		return sessionFactory.getCurrentSession().getNamedQuery("person.all")
 				.list();
 	}
 
 	@Override
-	public Person findClientByPin(String pin) {
-		return (Person) sessionFactory.getCurrentSession().getNamedQuery("person.byPin").setString("pin", pin).uniqueResult();
+	public Posrednik findClientByPin(String pin) {
+		return (Posrednik) sessionFactory.getCurrentSession().getNamedQuery("person.byPin").setString("pin", pin).uniqueResult();
 	}
 
 
 	@Override
-	public Long addNewCar(Car car) {
+	public Long addNewCar(Nieruchomosc car) {
 		car.setId(null);
 		return (Long) sessionFactory.getCurrentSession().save(car);
 	}
 
 	@Override
 	public void sellCar(Long personId, Long carId) {
-		Person person = (Person) sessionFactory.getCurrentSession().get(
-				Person.class, personId);
-		Car car = (Car) sessionFactory.getCurrentSession()
-				.get(Car.class, carId);
+		Posrednik person = (Posrednik) sessionFactory.getCurrentSession().get(
+				Posrednik.class, personId);
+		Nieruchomosc car = (Nieruchomosc) sessionFactory.getCurrentSession()
+				.get(Nieruchomosc.class, carId);
 		car.setSold(true);
 		person.getCars().add(car);
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Car> getAvailableCars() {
+	public List<Nieruchomosc> getAvailableCars() {
 		return sessionFactory.getCurrentSession().getNamedQuery("car.unsold")
 				.list();
 	}
 	@Override
-	public void disposeCar(Person person, Car car) {
+	public void disposeCar(Posrednik person, Nieruchomosc car) {
 
-		person = (Person) sessionFactory.getCurrentSession().get(Person.class,
+		person = (Posrednik) sessionFactory.getCurrentSession().get(Posrednik.class,
 				person.getId());
-		car = (Car) sessionFactory.getCurrentSession().get(Car.class,
+		car = (Nieruchomosc) sessionFactory.getCurrentSession().get(Nieruchomosc.class,
 				car.getId());
 
-		Car toRemove = null;
+		Nieruchomosc toRemove = null;
 		// lazy loading here (person.getCars)
-		for (Car aCar : person.getCars())
+		for (Nieruchomosc aCar : person.getCars())
 			if (aCar.getId().compareTo(car.getId()) == 0) {
 				toRemove = aCar;
 				break;
@@ -112,8 +112,8 @@ public class SellingMangerHibernateImpl implements SellingManager {
 	}
 
 	@Override
-	public Car findCarById(Long id) {
-		return (Car) sessionFactory.getCurrentSession().get(Car.class, id);
+	public Nieruchomosc findCarById(Long id) {
+		return (Nieruchomosc) sessionFactory.getCurrentSession().get(Nieruchomosc.class, id);
 	}
 
 }

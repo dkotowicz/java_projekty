@@ -12,8 +12,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.shdemo.domain.Car;
-import com.example.shdemo.domain.Person;
+import com.example.shdemo.domain.Nieruchomosc;
+import com.example.shdemo.domain.Posrednik;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/beans.xml" })
@@ -39,16 +39,16 @@ public class SellingManagerTest {
 	@Test
 	public void addClientCheck() {
 
-		List<Person> retrievedClients = sellingManager.getAllClients();
+		List<Posrednik> retrievedClients = sellingManager.getAllClients();
 
 		// If there is a client with PIN_1 delete it
-		for (Person client : retrievedClients) {
+		for (Posrednik client : retrievedClients) {
 			if (client.getPin().equals(PIN_1)) {
 				sellingManager.deleteClient(client);
 			}
 		}
 
-		Person person = new Person();
+		Posrednik person = new Posrednik();
 		person.setFirstName(NAME_1);
 		person.setPin(PIN_1);
 		// ... other properties here
@@ -56,7 +56,7 @@ public class SellingManagerTest {
 		// Pin is Unique
 		sellingManager.addClient(person);
 
-		Person retrievedClient = sellingManager.findClientByPin(PIN_1);
+		Posrednik retrievedClient = sellingManager.findClientByPin(PIN_1);
 
 		assertEquals(NAME_1, retrievedClient.getFirstName());
 		assertEquals(PIN_1, retrievedClient.getPin());
@@ -66,14 +66,14 @@ public class SellingManagerTest {
 	@Test
 	public void addCarCheck() {
 
-		Car car = new Car();
+		Nieruchomosc car = new Nieruchomosc();
 		car.setMake(MAKE_1);
 		car.setModel(MODEL_1);
 		// ... other properties here
 
 		Long carId = sellingManager.addNewCar(car);
 
-		Car retrievedCar = sellingManager.findCarById(carId);
+		Nieruchomosc retrievedCar = sellingManager.findCarById(carId);
 		assertEquals(MAKE_1, retrievedCar.getMake());
 		assertEquals(MODEL_1, retrievedCar.getModel());
 		// ... check other properties here
@@ -83,15 +83,15 @@ public class SellingManagerTest {
 	@Test
 	public void sellCarCheck() {
 
-		Person person = new Person();
+		Posrednik person = new Posrednik();
 		person.setFirstName(NAME_2);
 		person.setPin(PIN_2);
 
 		sellingManager.addClient(person);
 
-		Person retrievedPerson = sellingManager.findClientByPin(PIN_2);
+		Posrednik retrievedPerson = sellingManager.findClientByPin(PIN_2);
 
-		Car car = new Car();
+		Nieruchomosc car = new Nieruchomosc();
 		car.setMake(MAKE_2);
 		car.setModel(MODEL_2);
 
@@ -99,7 +99,7 @@ public class SellingManagerTest {
 
 		sellingManager.sellCar(retrievedPerson.getId(), carId);
 
-		List<Car> ownedCars = sellingManager.getOwnedCars(retrievedPerson);
+		List<Nieruchomosc> ownedCars = sellingManager.getOwnedCars(retrievedPerson);
 
 		assertEquals(1, ownedCars.size());
 		assertEquals(MAKE_2, ownedCars.get(0).getMake());
