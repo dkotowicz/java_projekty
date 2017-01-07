@@ -16,4 +16,7 @@ public interface NieruchomosciManager
 	public boolean editNieruchomosc(Nieruchomosc nieruchomosc);
 	public boolean editPosrednik(Posrednik posrednik);
 	
+	Nieruchomosc findNieruchomoscbyId(Long id);
+	Posrednik findPosrednikById(Long id);
+	
 }

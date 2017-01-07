@@ -72,6 +72,18 @@ public class NieruchomoscMangerHibernateImpl implements NieruchomosciManager
 		return true;
 	}
 	
+	@Override
+	public Nieruchomosc findNieruchomoscbyId(Long id) 
+	{
+		return (Nieruchomosc) sessionFactory.getCurrentSession().get(Nieruchomosc.class, id);
+	}
+	
+	@Override
+	public Posrednik findPosrednikById(Long id) 
+	{
+		return (Posrednik) sessionFactory.getCurrentSession().get(Posrednik.class, id);
+	}
+	
 	
 	
 }
