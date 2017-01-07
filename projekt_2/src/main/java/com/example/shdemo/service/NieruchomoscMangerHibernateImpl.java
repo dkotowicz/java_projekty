@@ -15,5 +15,24 @@ import com.example.shdemo.domain.Nieruchomosc;
 @Transactional
 public class NieruchomoscMangerHibernateImpl implements NieruchomosciManager 
 {
-
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory(SessionFactory _sessionFactory)
+	{
+		this.sessionFactory = _sessionFactory;
+	}
+	
+	@Override
+	public void addNieruchomosc(Nieruchomosc nieruchomosc) 
+	{
+		sessionFactory.getCurrentSession().persist(nieruchomosc);
+	}
+	
+	@Override
+	public Long addPosrednik(Posrednik posrednik) 
+	{
+		posrednik.setId(null);
+		return (Long)sessionFactory.getCurrentSession().save(posrednik);
+	}
 }
