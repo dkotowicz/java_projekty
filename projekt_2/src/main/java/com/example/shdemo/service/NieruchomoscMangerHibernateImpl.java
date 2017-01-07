@@ -48,6 +48,30 @@ public class NieruchomoscMangerHibernateImpl implements NieruchomosciManager
 		return sessionFactory.getCurrentSession().getNamedQuery("posrednik.all").list();
 	}
 	
+	@Override
+	public boolean editNieruchomosc(Nieruchomosc nieruchomosc) 
+	{
+		try{
+			sessionFactory.getCurrentSession().update(nieruchomosc);
+		}catch(Exception e)
+		{
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
+	public boolean editPosrednik(Posrednik posrednik) 
+	{
+		try{
+			sessionFactory.getCurrentSession().update(posrednik);
+		}catch(Exception e)
+		{
+			return false;
+		}
+		return true;
+	}
+	
 	
 	
 }

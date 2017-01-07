@@ -13,4 +13,7 @@ public interface NieruchomosciManager
 	List<Nieruchomosc> getAllNieruchmosci();
 	List<Posrednik> getAllPosredniki();
 	
+	public boolean editNieruchomosc(Nieruchomosc nieruchomosc);
+	public boolean editPosrednik(Posrednik posrednik);
+	
 }
