@@ -66,4 +66,48 @@ public class NieruchomosciManagerTest {
 		assertEquals(MIASTO_1, retrievedNieruchomosc1.getMiasto());
 		assertEquals(kodPocztowy_1, retrievedNieruchomosc1.getKodPocztowy());
 	}
+	
+	@Test
+	public void getAllPosrednik()
+	{
+		Posrednik posrednik1 = new Posrednik();
+		posrednik1.setNazwa(NAZWA_1);
+		posrednik1.setRegon(REGON_1);
+		Long posrednikId1 = nieruchomosciManager.addPosrednik(posrednik1);
+		
+		Posrednik posrednik2 = new Posrednik();
+		posrednik2.setNazwa(NAZWA_2);
+		posrednik2.setRegon(REGON_2);
+		Long posrednikId2 = nieruchomosciManager.addPosrednik(posrednik2);
+		
+		List<Posrednik> posrednik = nieruchomosciManager.getAllPosredniki();
+		assertEquals(2,posrednik.size());
+		
+		assertEquals(NAZWA_1, posrednik.get(0).getNazwa());
+		assertEquals(NAZWA_2, posrednik.get(1).getNazwa());		
+	}
+	
+	@Test 
+	public void getAllNieruchomosc()
+	{
+		Nieruchomosc nieruchomosc1 = new Nieruchomosc();
+		nieruchomosc1.setMiasto(MIASTO_1);
+		nieruchomosc1.setKodPocztowy(kodPocztowy_1);
+		nieruchomosc1.setUlica(ulica_1);
+		nieruchomosc1.setNrBloku(nrBloku_1);
+		nieruchomosciManager.addNieruchomosc(nieruchomosc1);
+		
+		Nieruchomosc nieruchomosc2 = new Nieruchomosc();
+		nieruchomosc2.setMiasto(MIASTO_2);
+		nieruchomosc2.setKodPocztowy(kodPocztowy_2);
+		nieruchomosc2.setUlica(ulica_2);
+		nieruchomosc2.setNrBloku(nrBloku_2);
+		nieruchomosciManager.addNieruchomosc(nieruchomosc2);
+		
+		List<Nieruchomosc> nieruchomosc = nieruchomosciManager.getAllNieruchmosci();
+		assertEquals(2,nieruchomosc.size());
+		
+		assertEquals(ulica_1, nieruchomosc.get(0).getUlica());
+		assertEquals(ulica_2, nieruchomosc.get(1).getUlica());
+	}
 }
