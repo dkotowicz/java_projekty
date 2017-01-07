@@ -19,4 +19,7 @@ public interface NieruchomosciManager
 	Nieruchomosc findNieruchomoscbyId(Long id);
 	Posrednik findPosrednikById(Long id);
 	
+	public Nieruchomosc findNieruchomoscbyMiasto(String miasto);
+	public Posrednik findPosrednikbyNazwa(String nazwa);
+	
 }

@@ -84,6 +84,18 @@ public class NieruchomoscMangerHibernateImpl implements NieruchomosciManager
 		return (Posrednik) sessionFactory.getCurrentSession().get(Posrednik.class, id);
 	}
 	
+	@Override
+	public Nieruchomosc findNieruchomoscbyMiasto(String miasto) 
+	{
+		return (Nieruchomosc) sessionFactory.getCurrentSession().getNamedQuery("nieruchomosc.byMiasto").setString("miasto", miasto).list().get(0);
+	}
+	
+	@Override
+	public Posrednik findPosrednikbyNazwa(String nazwa) 
+	{
+		return (Posrednik) sessionFactory.getCurrentSession().getNamedQuery("posrednik.byNazwa").setString("nazwa", nazwa).list().get(0);
+	}
+	
 	
 	
 }
