@@ -96,6 +96,33 @@ public class NieruchomoscMangerHibernateImpl implements NieruchomosciManager
 		return (Posrednik) sessionFactory.getCurrentSession().getNamedQuery("posrednik.byNazwa").setString("nazwa", nazwa).list().get(0);
 	}
 	
+	@Override
+	public void deleteNieruchomosc(Nieruchomosc nieruchomosc) 
+	{
+		nieruchomosc = (Nieruchomosc) sessionFactory.getCurrentSession().get(Nieruchomosc.class, nieruchomosc.getId());
+		for(Posrednik posrednik : nieruchomosc.getPosredniki())
+		{
+			sessionFactory.getCurrentSession().delete(posrednik);
+		}
+		sessionFactory.getCurrentSession().delete(nieruchomosc);
+	}
 	
+	@Override
+	public void deletePosrednik(Posrednik posrednik) 
+	{
+		Posrednik _posrednik = (Posrednik) sessionFactory.getCurrentSession().get(Posrednik.class, posrednik.getId());
+		
+		List<Nieruchomosc> nieruchomosci = getAllNieruchmosci();
+		for(Nieruchomosc n : nieruchomosci){
+		for(Posrednik p : n.getPosredniki()){
+			if(n.getId() == _posrednik.getId()){
+				n.getPosredniki().remove(p);
+				sessionFactory.getCurrentSession().update(n);
+				break;
+				}
+			}
+		}
+		sessionFactory.getCurrentSession().delete(_posrednik);
+	}
 	
 }

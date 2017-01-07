@@ -22,4 +22,7 @@ public interface NieruchomosciManager
 	public Nieruchomosc findNieruchomoscbyMiasto(String miasto);
 	public Posrednik findPosrednikbyNazwa(String nazwa);
 	
+	void deleteNieruchomosc(Nieruchomosc nieruchomosc);
+	void deletePosrednik(Posrednik posrednik);
+	
 }

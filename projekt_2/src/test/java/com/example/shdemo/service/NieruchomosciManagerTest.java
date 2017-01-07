@@ -19,7 +19,7 @@ import com.example.shdemo.domain.Posrednik;
 @ContextConfiguration(locations = { "classpath:/beans.xml" })
 @TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
 @Transactional
-public class SellingManagerTest {
+public class NieruchomosciManagerTest {
 
 	@Autowired
 	NieruchomosciManager sellingManager;
