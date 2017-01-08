@@ -168,4 +168,117 @@ public class NieruchomosciManagerTest {
 		Posrednik posrednikDwa = nieruchomosciManager.findPosrednikById(posrednikId2);
 		assertEquals(NAZWA_2, posrednikDwa.getNazwa());
 	}
+	
+	@Test
+	public void getPosrednikById()
+	{
+		Posrednik posrednik1 = new Posrednik();
+		posrednik1.setNazwa(NAZWA_1);
+		posrednik1.setRegon(REGON_1);
+		Long posrednikId1 = nieruchomosciManager.addPosrednik(posrednik1);
+		
+		Posrednik posrednik2 = new Posrednik();
+		posrednik2.setNazwa(NAZWA_2);
+		posrednik2.setRegon(REGON_2);
+		Long posrednikId2 = nieruchomosciManager.addPosrednik(posrednik2);
+		
+		Posrednik posrednikNew = nieruchomosciManager.findPosrednikById(posrednikId2);
+		assertEquals(NAZWA_2, posrednikNew.getNazwa());
+	}
+	
+	@Test public void getNieruchomoscById()
+	{
+
+		Nieruchomosc nieruchomosc1 = new Nieruchomosc();
+		nieruchomosc1.setMiasto(MIASTO_1);
+		nieruchomosc1.setKodPocztowy(kodPocztowy_1);
+		nieruchomosc1.setUlica(ulica_1);
+		nieruchomosc1.setNrBloku(nrBloku_1);
+		nieruchomosciManager.addNieruchomosc(nieruchomosc1);
+		
+		Nieruchomosc retrievedNieruchomosc1 = nieruchomosciManager.findNieruchomoscbyMiasto(MIASTO_1);
+		Long nieruchomoscId1 = retrievedNieruchomosc1.getId();
+		
+		Nieruchomosc nieruchmoscId1ById = nieruchomosciManager.findNieruchomoscbyId(nieruchomosc1.getId());
+		assertEquals(nieruchomosc1.getId(), nieruchmoscId1ById.getId());
+	}
+	
+	@Test
+	public void getPosrednikByNazwa()
+	{
+		Posrednik posrednik1 = new Posrednik();
+		posrednik1.setNazwa(NAZWA_1);
+		posrednik1.setRegon(REGON_1);
+		Long posrednikId1 = nieruchomosciManager.addPosrednik(posrednik1);
+		
+		Posrednik posrednik2 = new Posrednik();
+		posrednik2.setNazwa(NAZWA_2);
+		posrednik2.setRegon(REGON_2);
+		Long posrednikId2 = nieruchomosciManager.addPosrednik(posrednik2);
+		
+		Posrednik posrednik3 = new Posrednik();
+		posrednik3.setNazwa(NAZWA_1);
+		posrednik3.setRegon(REGON_2);
+		Long posrednikId3 = nieruchomosciManager.addPosrednik(posrednik3);
+		
+		List<Posrednik> posrednik = nieruchomosciManager.getAllPosredniki();
+		assertEquals(3,posrednik.size());
+		
+		List<Posrednik> posrednikbyNazwa = new ArrayList<Posrednik>();
+		for(Posrednik pos : posrednik)
+			if(pos.getNazwa()==NAZWA_1)
+				posrednikbyNazwa.add(pos);
+		
+		assertEquals(2,posrednikbyNazwa.size());
+		
+		assertEquals(REGON_1, posrednikbyNazwa.get(0).getRegon());
+		assertEquals(REGON_2, posrednikbyNazwa.get(1).getRegon());
+	}
+	
+	@Test
+	public void getNieruchomoscByMiasto()
+	{
+		Nieruchomosc nieruchomosc1 = new Nieruchomosc();
+		nieruchomosc1.setMiasto(MIASTO_1);
+		nieruchomosc1.setKodPocztowy(kodPocztowy_1);
+		nieruchomosc1.setUlica(ulica_1);
+		nieruchomosc1.setNrBloku(nrBloku_1);
+		nieruchomosciManager.addNieruchomosc(nieruchomosc1);
+		
+		Nieruchomosc retrievedNieruchomosc1 = nieruchomosciManager.findNieruchomoscbyMiasto(MIASTO_1);
+		Long nieruchomoscId1 = retrievedNieruchomosc1.getId();
+		
+		Nieruchomosc nieruchomosc2 = new Nieruchomosc();
+		nieruchomosc2.setMiasto(MIASTO_2);
+		nieruchomosc2.setKodPocztowy(kodPocztowy_2);
+		nieruchomosc2.setUlica(ulica_2);
+		nieruchomosc2.setNrBloku(nrBloku_2);
+		nieruchomosciManager.addNieruchomosc(nieruchomosc2);
+		
+		Nieruchomosc retrievedNieruchomosc2 = nieruchomosciManager.findNieruchomoscbyMiasto(MIASTO_2);
+		Long nieruchomoscId2 = retrievedNieruchomosc2.getId();
+		
+		Nieruchomosc nieruchomosc3 = new Nieruchomosc();
+		nieruchomosc3.setMiasto(MIASTO_1);
+		nieruchomosc3.setKodPocztowy(kodPocztowy_1);
+		nieruchomosc3.setUlica(ulica_1);
+		nieruchomosc3.setNrBloku(nrBloku_2);
+		nieruchomosciManager.addNieruchomosc(nieruchomosc3);
+		
+		Nieruchomosc retrievedNieruchomosc3 = nieruchomosciManager.findNieruchomoscbyMiasto(MIASTO_1);
+		Long nieruchomoscId3 = retrievedNieruchomosc3.getId();
+		
+		List<Nieruchomosc> nieruchomosc = nieruchomosciManager.getAllNieruchmosci();
+		assertEquals(3,nieruchomosc.size());
+		
+		List<Nieruchomosc> nieruchomoscbyMiasto = new ArrayList<Nieruchomosc>();
+		for(Nieruchomosc nier : nieruchomosc)
+			if(nier.getMiasto()==MIASTO_1)
+				nieruchomoscbyMiasto.add(nier);
+		
+		assertEquals(2,nieruchomoscbyMiasto.size());
+		
+		assertEquals(ulica_1, nieruchomoscbyMiasto.get(0).getUlica());
+		assertEquals(nrBloku_2, nieruchomoscbyMiasto.get(1).getNrBloku());
+	}
 }
