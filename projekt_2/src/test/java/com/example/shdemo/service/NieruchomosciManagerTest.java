@@ -281,4 +281,88 @@ public class NieruchomosciManagerTest {
 		assertEquals(ulica_1, nieruchomoscbyMiasto.get(0).getUlica());
 		assertEquals(nrBloku_2, nieruchomoscbyMiasto.get(1).getNrBloku());
 	}
+	
+	@Test
+	public void deleteNieruchomosc()
+	{
+		Nieruchomosc nieruchomosc1 = new Nieruchomosc();
+		nieruchomosc1.setMiasto(MIASTO_1);
+		nieruchomosc1.setKodPocztowy(kodPocztowy_1);
+		nieruchomosc1.setUlica(ulica_1);
+		nieruchomosc1.setNrBloku(nrBloku_1);
+		nieruchomosciManager.addNieruchomosc(nieruchomosc1);
+		
+		Nieruchomosc nieruchomosc2 = new Nieruchomosc();
+		nieruchomosc2.setMiasto(MIASTO_2);
+		nieruchomosc2.setKodPocztowy(kodPocztowy_2);
+		nieruchomosc2.setUlica(ulica_2);
+		nieruchomosc2.setNrBloku(nrBloku_2);
+		nieruchomosciManager.addNieruchomosc(nieruchomosc2);
+		
+		List<Nieruchomosc> nieruchomosc = nieruchomosciManager.getAllNieruchmosci();
+		assertEquals(2,nieruchomosc.size());
+		
+		nieruchomosciManager.deleteNieruchomosc(nieruchomosc1);
+		
+		nieruchomosc = nieruchomosciManager.getAllNieruchmosci();
+		assertEquals(1,nieruchomosc.size());
+		
+		assertEquals(ulica_2, nieruchomosc.get(0).getUlica());
+		
+		assertEquals(null, nieruchomosciManager.findNieruchomoscbyId(nieruchomosc1.getId()));
+	}
+	
+	@Test
+	public void deletePosrednik()
+	{
+		Posrednik posrednik1 = new Posrednik();
+		posrednik1.setNazwa(NAZWA_1);
+		posrednik1.setRegon(REGON_1);
+		nieruchomosciManager.addPosrednik(posrednik1);
+		
+		Posrednik posrednik2 = new Posrednik();
+		posrednik2.setNazwa(NAZWA_2);
+		posrednik2.setRegon(REGON_2);
+		nieruchomosciManager.addPosrednik(posrednik2);
+		
+		List<Posrednik> posrednik = nieruchomosciManager.getAllPosredniki();
+		assertEquals(2,posrednik.size());
+		
+		nieruchomosciManager.deletePosrednik(posrednik1);
+		
+		posrednik = nieruchomosciManager.getAllPosredniki();
+		assertEquals(1,posrednik.size());
+		
+		assertEquals(REGON_2, posrednik.get(0).getRegon());
+		
+		assertEquals(null, nieruchomosciManager.findPosrednikById(posrednik1.getId()));	
+	}
+	
+	@Test 
+	public void selectNieruchomoscPosrednik()
+	{
+		Nieruchomosc nieruchomosc1 = new Nieruchomosc();
+		nieruchomosc1.setMiasto(MIASTO_1);
+		nieruchomosc1.setKodPocztowy(kodPocztowy_1);
+		nieruchomosc1.setUlica(ulica_1);
+		nieruchomosc1.setNrBloku(nrBloku_1);
+		nieruchomosciManager.addNieruchomosc(nieruchomosc1);
+		
+		Posrednik posrednik1 = new Posrednik();
+		posrednik1.setNazwa(NAZWA_1);
+		posrednik1.setRegon(REGON_1);
+		nieruchomosciManager.addPosrednik(posrednik1);
+		
+		Posrednik posrednik2 = new Posrednik();
+		posrednik2.setNazwa(NAZWA_2);
+		posrednik2.setRegon(REGON_2);
+		nieruchomosciManager.addPosrednik(posrednik2);
+		
+		nieruchomosc1.setPosredniki(nieruchomosciManager.getAllPosredniki());
+		
+		assertEquals(REGON_1,nieruchomosc1.getPosredniki().get(0).getRegon());
+		assertEquals(REGON_2,nieruchomosc1.getPosredniki().get(1).getRegon());
+		
+		assertEquals(MIASTO_1,nieruchomosc1.getMiasto());
+	}
 }
